@@ -2766,6 +2766,25 @@ end)
 local ToggleFastAttack = Tabs.Main:AddToggle("ToggleFastAttack", {Title = " ตีเร็ว", Default = true })
 
     ToggleFastAttack:OnChanged(function(Value)
+     _G.FastAttack = Value
+    end)
+    Options.ToggleFastAttack:SetValue(true)
+
+spawn(function()
+while wait(.1) do
+    if _G.FastAttack then
+        pcall(function()
+            repeat task.wait(_G.FastAttackDelay)
+                AttackHit()
+            until not _G.FastAttack
+        end)
+    end
+end
+end) 
+
+local ToggleFastAttack = Tabs.Main:AddToggle("ToggleFastAttack", {Title = " ตีเร็ว", Default = true })
+
+    ToggleFastAttack:OnChanged(function(Value)
      _G.FastAttackFaiFao = Value
     end)
     Options.ToggleFastAttack:SetValue(true)
@@ -3090,14 +3109,4 @@ spawn(function()
 
         end
     end
-end)
-
-local ToggleBone = Tabs.Player:AddToggle("ToggleBone", {Title = "One Click Aimbot", Default = false })
-ToggleBone:OnChanged(function(Value)
-    _G.Aimbot = Value
-end)
-
-local ToggleBone = Tabs.Player:AddToggle("ToggleBone", {Title = "Very Aimbot", Default = false })
-ToggleBone:OnChanged(function(Value)
-    _G.Aimbot = Value
 end)
