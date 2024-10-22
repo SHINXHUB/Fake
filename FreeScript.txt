@@ -2796,25 +2796,6 @@ end)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --Create Tabs
 local Farming = Tabs.Main:AddSection("Farming")
-local Farming = Tabs.Main:AddSection("Farming")
-    local ToggleBypassTP = Tabs.Main:AddToggle("ToggleBypassTP", {Title = "ตีเร็ว", Default = false })
-    ToggleBypassTP:OnChanged(function(Value)
-        _G.FastAttack2 = Value
-    end)
-    Options.ToggleBypassTP:SetValue(false)
-    
-   spawn(function()
-    while wait(.1) do
-        if _G.FastAttack2 then
-            pcall(function()
-                repeat task.wait(_G.FastAttackDelay)
-                    AttackNoCD()
-                until not _G.FastAttack2
-            end)
-        end
-    end
-end)
-
     local ToggleBypassTP = Tabs.Main:AddToggle("ToggleBypassTP", {Title = "บายพาส เพเลพอร์ต", Default = false })
     ToggleBypassTP:OnChanged(function(Value)
         BypassTP = Value
