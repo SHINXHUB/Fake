@@ -4463,6 +4463,10 @@ spawn(function()
     end
 end)
 
+Main:AddToggle("รวมมอน",true,function(Mag)
+    _G.BringMonster = Mag
+    end)
+    
     spawn(function()
         while task.wait() do
             pcall(function()
@@ -4759,4 +4763,24 @@ task.spawn(function()
 		pcall(function()
 			if _G.AutoFarmNearest and AutoFarmNearestMagnet or _G.AutoFarmNearest and AutoFarmNearestMagnet or SelectMag and _G.BringMonster then
 				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position -
+					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
+						if InMyNetWork(v.HumanoidRootPart) then
+							v.HumanoidRootPart.CFrame = PosMon
+							v.Humanoid.JumpPower = 0
+							v.Humanoid.WalkSpeed = 0
+							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+							v.HumanoidRootPart.Transparency = 1
+							v.HumanoidRootPart.CanCollide = false
+							v.Head.CanCollide = false
+							if v.Humanoid:FindFirstChild("Animator") then
+								v.Humanoid.Animator:Destroy()
+							end
+							v.Humanoid:ChangeState(11)
+							v.Humanoid:ChangeState(14)
+						end
+					end
+				end
+			end
+		end)
+	end
+    end)
