@@ -3836,6 +3836,7 @@ local T = Library:AddTab("เทเลพอร์ต","4483345998")
 local S = Library:AddTab("ร้านค้า","4483345998")
 local D = Library:AddTab("ผลปีศาจ","4483345998")
 local Misc = Library:AddTab("อื่นๆ","4483345998")
+local Sv = Library:AddTab("เซิฟเวอร์","4483345998")
 ---------------------------------------------------
 Main:AddSeperator("ฟาร์ม ทั่วไป")
 local WeaponList = {"หมัด","ดาบ","ผลปีศาจ","ปืน"}
@@ -4202,7 +4203,7 @@ Main:AddToggle("ตีเร็ว ",true,function(value)
                                     end
                                 else
                                     MagnetDought = false
-                                    HyperCahaya(CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375))
+                                    HyperCahaya(CFrame.new(-2151.82153, 149.315704, -12404.9053, 0.087131381, -0, -0.996196866, 0, 1, -0, 0.996196866, 0, 0.087131381))
                                     if game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter") then
                                         HyperCahaya(game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter").HumanoidRootPart.CFrame * CFrame.new(2,20,2)) 
                                     else
@@ -4303,7 +4304,7 @@ Main:AddToggle("ตีเร็ว ",true,function(value)
         end
     end)    
     
-   Main:AddToggle("Farm Nearest ",_G.AutoFarmNearest,function(value)
+   Main:AddToggle("ฟาร์ม มอนสเตอร์ รอบๆ ",_G.AutoFarmNearest,function(value)
    _G.AutoFarmNearest = value
    StopTween(_G.AutoFarmNearest)
  end)
@@ -4340,9 +4341,9 @@ spawn(function()
 	end
     end)
   
-    Main:AddLabel("Chest Farm")
+    M:AddLabel("ถ้วยเสกแอดมิน")
     
-Main:AddToggle("Farm Chest | Safe ",false,function(value)
+M:AddToggle("หาถ้วยเสกแอดมิน | ปลอดภัย ",false,function(value)
  AutoFarmChest = value
  StopTween(AutoFarmChest)
  end)
@@ -4371,7 +4372,7 @@ spawn(function()
 	end
 end)
 
-Main:AddToggle("Farm Chest Bypass | Risk Kick",false,function(vu)
+M:AddToggle("หาถ้วยเสกแอดมิน | เสี่ยงรีของ | รีตัวตอนได้ถ้วยบางที",false,function(vu)
 	_G.ChestBypass = vu
 end)
 
@@ -4409,9 +4410,9 @@ if _G.ChestBypass then
 end
 end)
 
-    Main:AddSeperator("Dough Boss")
+    Sv:AddSeperator("คาตาคุริ | บอส โมจิ")
     
-        local MobKilled = Main:AddLabel("Killed")
+        local MobKilled = Sv:AddLabel("ฆ่า")
     
     spawn(function()
         while wait() do
@@ -4429,7 +4430,7 @@ end)
         end
     end)
 
-    Main:AddButton("Bypass Cake Island Teleport",function()
+    Teleport:AddButton("บายพาส เทเลพอร์ต ไปที่ เกาะคาตาคุริ",function()
         if BypassTP then
             local cakepos = CFrame.new(-2077, 252, -12373)
             BTP(cakepos)
@@ -4442,57 +4443,16 @@ end)
         end
     end)
     
-    Main:AddToggle("Spawn Cake Prince",true,function(value)
+    Setting:AddToggle("เสกคาตาคุริ",true,function(value)
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner",value)
     end)
     
-    Main:AddToggle("Farm Dough King", _G.Autodoughking,function(value)
+    M:AddToggle("ฟาร์ม คาตาคุริ | ตีบอสคาตาคุริ อย่างเดียวไม่ทำอย่างอื่น", _G.Autodoughking,function(value)
          _G.Autodoughking = value
         StopTween( _G.Autodoughking)
     end)
     
-    Main:AddToggle("Farm Dough King Hop", _G.AutodoughkingHop,function(value)
-         _G.AutodoughkingHop = value
-    end)
-    
-    spawn(function()
-        while wait() do
-            if  _G.Autodoughking and World3 then
-                pcall(function()
-                    if game:GetService("Workspace").Enemies:FindFirstChild("Dough King") then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v.Name == "Dough King" then
-                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    repeat task.wait()
-                                        AutoHaki()
-                                        EquipWeapon(_G.SelectWeapon)
-                                        v.HumanoidRootPart.CanCollide = false
-                                        v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
-                                        game:GetService("VirtualUser"):CaptureController()
-                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
-                                    until not  _G.Autodoughking or not v.Parent or v.Humanoid.Health <= 0
-                                end
-                            end
-                        end
-                    else
-                    HyperCahaya(CFrame.new(-2662.818603515625, 1062.3480224609375, -11853.6953125))
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Dough King") then
-                            HyperCahaya(game:GetService("ReplicatedStorage"):FindFirstChild("Dough King").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                        else
-                            if  _G.AutodoughkingHop then
-                                Hop()
-                            end
-                        end
-                    end
-                end)
-            end
-        end
-    end)
-   
-    
+
     Main:AddSeperator("Boss")
     
     
