@@ -188,7 +188,7 @@ ImageButton1.BorderSizePixel = 0
 ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
 ImageButton1.Size = UDim2.new(0, 50, 0, 50)
 ImageButton1.Draggable = true
-ImageButton1.Image = "rbxassetid://13717478897"
+ImageButton1.Image = "rbxassetid://137194428203692"
 ImageButton1.MouseButton1Down:connect(function()
 game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
 game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
@@ -407,7 +407,7 @@ function Update:Window(text,logo,keybind)
   --  UserImage.BackgroundColor3 = Color3.fromRGB(225, 225, 225)
     UserImage.Position = UDim2.new(0, 10, 0, -15)
     UserImage.Size = UDim2.new(0, 25, 0, 25)
-    UserImage.Image = "rbxassetid://13717478897"
+    UserImage.Image = "rbxassetid://137194428203692"
     local UserImageCorner = Instance.new("UICorner")
     UserImageCorner.CornerRadius = UDim.new(0, 100)
     UserImageCorner.Name = "UserImageCorner"
@@ -822,7 +822,7 @@ function Update:Window(text,logo,keybind)
         ImageButton.BorderSizePixel = 0
         ImageButton.Position = UDim2.new(0, 350, 0, 6)
         ImageButton.Size = UDim2.new(0, 20, 0, 20)
-        ImageButton.Image = "rbxassetid://13717478897"
+        ImageButton.Image = "rbxassetid://137194428203692"
         ImageButton.ImageColor3 = Color3.fromRGB(255, 255, 255)
 
         UICorner_2.CornerRadius = UDim.new(0, 5)
@@ -932,7 +932,7 @@ function Update:Window(text,logo,keybind)
         ImageLabel.BorderSizePixel = 0
         ImageLabel.Position = UDim2.new(0, 5, 0, 6)
         ImageLabel.Size = UDim2.new(0, 20, 0, 20)
-        ImageLabel.Image = "rbxassetid://13717478897"
+        ImageLabel.Image = "rbxassetid://137194428203692"
         ImageLabel.ImageColor3 = Color3.fromRGB(255, 255, 255)
 
         Space.Name = "Space"
@@ -1286,7 +1286,7 @@ function Update:Window(text,logo,keybind)
         ImageLabel.BorderSizePixel = 0
         ImageLabel.Position = UDim2.new(0, 7.5, 0, 7.5)
         ImageLabel.Size = UDim2.new(0, 30, 0, 30)
-        ImageLabel.Image = "rbxassetid://13717478897"
+        ImageLabel.Image = "rbxassetid://137194428203692"
             
         Title.Parent = SliderFrame_2
         Title.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
@@ -3418,7 +3418,7 @@ end)
         localplayer=game:GetService("Players").LocalPlayer
         game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
         local torso = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-        local speedSET=25
+        local speedSET=59
         local keys={a=false,d=false,w=false,s=false}
         local e1
         local e2
@@ -3435,7 +3435,7 @@ end)
                     localplayer.Character.Humanoid.PlatformStand=true
                     local new=gyro.CFrame - gyro.CFrame.p + pos.position
                     if not keys.w and not keys.s and not keys.a and not keys.d then
-                    speed=1
+                    speed=10
                     end
                     if keys.w then
                     new = new + workspace.CurrentCamera.CoordinateFrame.lookVector * speed
@@ -3576,9 +3576,9 @@ end
     elseif Distance < 500 then
         Speed = 400
     elseif Distance < 750 then
-        Speed = 250
+        Speed = 325
     elseif Distance >= 1000 then
-        Speed = 200
+        Speed = 350
     end
     game:GetService("TweenService"):Create(
         game.Players.LocalPlayer.Character.HumanoidRootPart,
@@ -3602,7 +3602,7 @@ end
         elseif Distance < 750 then
             Speed = 250
         elseif Distance >= 1000 then
-            Speed = 200
+            Speed = 350
         end
         game:GetService("TweenService"):Create(
             game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
@@ -3624,9 +3624,9 @@ end
         elseif Distance < 500 then
             Speed = 300
         elseif Distance < 750 then
-            Speed = 250
+            Speed = 350
         elseif Distance >= 1000 then
-            Speed = 200
+            Speed = 325
         end
         game:GetService("TweenService"):Create(
             game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
@@ -3638,7 +3638,7 @@ end
     function HyperCahaya(Pos)
         Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
         if Distance < 10 then
-            Speed = 20
+            Speed = 360
         elseif Distance < 25 then
             Speed = 5050
         elseif Distance < 50 then
@@ -3652,7 +3652,7 @@ end
         elseif Distance < 750 then
             Speed = 370
         elseif Distance >= 1000 then
-            Speed = 320
+            Speed = 350
         end
         game:GetService("TweenService"):Create(
             game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
@@ -3825,17 +3825,17 @@ getgenv().HyperCahayas = function(p)
     end)
     
 
-local Library = Update:Window("Gamer144 Hub","",Enum.KeyCode.RightControl);
-local Main = Library:AddTab("Main","4483345998")
-local M = Library:AddTab("Item","4483345998")
-local Ss = Library:AddTab("Stats","4483345998")
-local RaceV4 = Library:AddTab("Race V4","4483345998")
-local P = Library:AddTab("PVP","4483345998")
-local R = Library:AddTab("Dungeon","4483345998")
-local T = Library:AddTab("Teleport","4483345998")
-local S = Library:AddTab("Shop","4483345998")
-local D = Library:AddTab("Devil Fruit","4483345998")
-local Misc = Library:AddTab("Misc","4483345998")
+local Library = Update:Window("SHIN X HUB | สคริปต์ ฟรี","",Enum.KeyCode.RightControl);
+local Main = Library:AddTab("ฟาร์ม ทั่วไป","4483345998")
+local M = Library:AddTab("ฟาร์ม ไอเท็ม","4483345998")
+local Ss = Library:AddTab("สเตตัส","4483345998")
+local RaceV4 = Library:AddTab("เผ่า V4","4483345998")
+local P = Library:AddTab("ต่อสู้","4483345998")
+local R = Library:AddTab("ลงดัน","4483345998")
+local T = Library:AddTab("เทเลพอร์ต","4483345998")
+local S = Library:AddTab("ร้านค้า","4483345998")
+local D = Library:AddTab("ผลปีศาจ","4483345998")
+local Misc = Library:AddTab("อื่นๆ","4483345998")
 ---------------------------------------------------
 Main:AddSeperator("Farm Settings")
 local WeaponList = {"Melee","Sword","Fruit","Gun"}
@@ -5748,7 +5748,7 @@ spawn(function()
 						game.StarterGui:SetCore("SendNotification", {
 							Title = "Notification", 
 							Text = "Not Have Superhuman" ,
-							Icon = "http://www.roblox.com/asset/?id=13717478897",
+							Icon = "http://www.roblox.com/asset/?id=137194428203692",
 							Duration = 2.5
 						})
 					end
@@ -5760,7 +5760,7 @@ spawn(function()
 						game.StarterGui:SetCore("SendNotification", {
 							Title = "Notification", 
 							Text = "Not Have Death Step" ,
-							Icon = "http://www.roblox.com/asset/?id=13717478897",
+							Icon = "http://www.roblox.com/asset/?id=137194428203692",
 							Duration = 2.5
 						})
 					end
@@ -5772,7 +5772,7 @@ spawn(function()
 						game.StarterGui:SetCore("SendNotification", {
 							Title = "Notification", 
 							Text = "Not Have SharkMan Karate" ,
-							Icon = "http://www.roblox.com/asset/?id=13717478897",
+							Icon = "http://www.roblox.com/asset/?id=137194428203692",
 							Duration = 2.5
 						})
 					end
@@ -5784,7 +5784,7 @@ spawn(function()
 						game.StarterGui:SetCore("SendNotification", {
 							Title = "Notification", 
 							Text = "Not Have Electric Claw" ,
-							Icon = "http://www.roblox.com/asset/?id=13717478897",
+							Icon = "http://www.roblox.com/asset/?id=137194428203692",
 							Duration = 2.5
 						})
 					end
@@ -5794,7 +5794,7 @@ spawn(function()
 								game.StarterGui:SetCore("SendNotification", {
 									Title = "Notification", 
 									Text = "Not Have Enough Material" ,
-									Icon = "http://www.roblox.com/asset/?id=13717478897",
+									Icon = "http://www.roblox.com/asset/?id=137194428203692",
 									Duration = 2.5
 								})
 							else
@@ -5805,7 +5805,7 @@ spawn(function()
 						game.StarterGui:SetCore("SendNotification", {
 							Title = "Notification", 
 							Text = "Not Have Dragon Talon" ,
-							Icon = "http://www.roblox.com/asset/?id=13717478897",
+							Icon = "http://www.roblox.com/asset/?id=137194428203692",
 							Duration = 2.5
 						})
 					end
