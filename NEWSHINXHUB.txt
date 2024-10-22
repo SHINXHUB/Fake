@@ -13453,15 +13453,6 @@ for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
     v:Disable()
 end
 
-    Misc:AddButton("กันแบน",function()
-        spawn(function()
-            if setfflag then
-                setfflag("AbuseReportScreenshot", "False")
-                setfflag("AbuseReportScreenshotPercentage", "0")
-            end
-        end)
-    end)
-    
 	Misc:AddToggle("ถ้าโดนเตะให้รีจอย",true,function(value)
 		_G.AutoRejoin = value
 	end)
