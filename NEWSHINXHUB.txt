@@ -4005,6 +4005,79 @@ end)
 Main:AddToggle("ตีเร็ว ",true,function(value)
         _G.FastAttack = value
     end)      
+    
+local Bring = {"น้อย", "ปกติ", "SHIN X HUB"}
+_G.BringMode = "SHIN X HUB"
+Main:AddDropdown("โหลดรวมมอน", Bring,function(value)
+    _G.BringMode = value
+end)
+spawn(function()
+    while wait(.1) do
+        if _G.BringMode then
+            pcall(function()
+                if _G.BringMode == "น้อย" then
+                    _G.BringMode = 250
+                elseif _G.BringMode == "ปกติ" then
+                    _G.BringMode = 300
+                elseif _G.BringMode == "SHIN X HUB" then
+                    _G.BringMode = 350
+                end
+            end)
+        end
+    end
+end)
+
+Main:AddToggle("Bring Mob",true,function(Mag)
+    _G.BringMonster = Mag
+    end)
+    spawn(function()
+        while task.wait() do
+            pcall(function()
+                if _G.BringMonster then
+                    CheckQuest()
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if _G.AutoFarm and StartMagnet and v.Name == Mon and (Mon == "Factory Staff" or Mon == "Monkey" or Mon == "Dragon Crew Warrior" or Mon == "Dragon Crew Archer") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 220 then
+                            v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                            v.HumanoidRootPart.CFrame = PosMon
+                            v.Humanoid:ChangeState(14)
+                            v.HumanoidRootPart.CanCollide = false
+                            v.Head.CanCollide = false
+                            if v.Humanoid:FindFirstChild("Animator") then
+                                v.Humanoid.Animator:Destroy()
+                            end
+                            sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                        elseif _G.AutoFarm and StartMagnet and v.Name == Mon and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
+                            v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                            v.HumanoidRootPart.CFrame = PosMon
+                            v.Humanoid:ChangeState(14)
+                            v.HumanoidRootPart.CanCollide = false
+                            v.Head.CanCollide = false
+                            if v.Humanoid:FindFirstChild("Animator") then
+                                v.Humanoid.Animator:Destroy()
+                            end
+                            sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                        end
+                    end
+                end
+            end)
+        end
+    end)
+    
+Main:AddToggle("ออโต้ เปิดฮาคิเกาะ",true,function(value)
+_G.AUTOHAKI = value
+end)
+spawn(function()
+    while wait(.1) do
+        if _G.AUTOHAKI then 
+            if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+                local args = {
+                    [1] = "Buso"
+                }
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+            end
+        end
+    end
+end)
 
     PosY = 30
     Main:AddSlider("ความสูงการบิน",0,50,45,function(value)
