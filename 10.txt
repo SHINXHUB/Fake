@@ -366,7 +366,7 @@ function Update:Window(text,logo,keybind)
     Ping.Position = UDim2.new(0.28, 0,0.074, 0)
     Ping.Size = UDim2.new(0, 225, 0, 25)
     Ping.Font = Enum.Font.GothamSemibold
-    Ping.Text = "Blox Fruit | discord.gg/Dg5nr8CrVV          [RightControl]"
+    Ping.Text = "--// SHIN X HUB \\--//YT : SHIN X HUB \\--          [RightControl]"
     Ping.TextColor3 = Color3.fromRGB(255,255,255)
     Ping.TextSize = 14.000
     Ping.TextXAlignment = Enum.TextXAlignment.Left
@@ -390,7 +390,7 @@ function Update:Window(text,logo,keybind)
     UserText.TextColor3 = Color3.fromRGB(255, 255, 255)
     UserText.Size = UDim2.new(0, 80, 0, 25)
     UserText.Font = Enum.Font.GothamSemibold
-    UserText.Text = "Min Gaming Hub"
+    UserText.Text = "SHIN X HUB"
     UserText.TextScaled = true
     UserText.TextSize = 17.000
     UserText.TextWrapped = true
@@ -3825,7 +3825,7 @@ getgenv().HyperCahayas = function(p)
     end)
     
 
-local Library = Update:Window("Min Gaming Hub","",Enum.KeyCode.RightControl);
+local Library = Update:Window("SHIN X HUB","",Enum.KeyCode.RightControl);
 local Main = Library:AddTab("Main","4483345998")
 local M = Library:AddTab("Item","4483345998")
 local Ss = Library:AddTab("Stats","4483345998")
@@ -3837,55 +3837,10 @@ local S = Library:AddTab("Shop","4483345998")
 local D = Library:AddTab("Devil Fruit","4483345998")
 local Misc = Library:AddTab("Misc","4483345998")
 ---------------------------------------------------
-Main:AddSeperator("Farm Settings")
-local WeaponList = {"Melee","Sword","Fruit","Gun"}
-_G.SelectWeapon = "Melee"
-Main:AddDropdown("Select Weapon",WeaponList,function(value)
-_G.SelectWeapon = value
-end)
-task.spawn(function()
-	while wait() do
-		pcall(function()
-			if _G.SelectWeapon == "Melee" then
-				for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-					if v.ToolTip == "Melee" then
-						if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-							_G.SelectWeapon = v.Name
-						end
-					end
-				end
-			elseif _G.SelectWeapon == "Sword" then
-				for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-					if v.ToolTip == "Sword" then
-						if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-							_G.SelectWeapon = v.Name
-						end
-					end
-				end
-			elseif _G.SelectWeapon == "Gun" then
-				for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-					if v.ToolTip == "Gun" then
-						if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-							_G.SelectWeapon = v.Name
-						end
-					end
-				end
-			elseif _G.SelectWeapon == "Fruit" then
-				for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-					if v.ToolTip == "Blox Fruit" then
-						if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-							_G.SelectWeapon = v.Name
-						end
-					end
-				end
-			end
-		end)
-	end
-    end)
-
-local AttackList = {"0", "0.1", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185"}
-_G.FastAttackDelay = "0.175"
-Main:AddDropdown("Fast Attack Delay", AttackList,function(MakoGay)
+Main:AddSeperator("ตั้งค่าฟาร์ม")
+local AttackList = {"0", "SHIN X HUB", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185"}
+_G.FastAttackDelay = "SHIN X HUB"
+Main:AddDropdown("ระยะเวลาโจมตี", AttackList,function(MakoGay)
     _G.FastAttackDelay = MakoGay
 end)
 spawn(function()
@@ -3894,7 +3849,7 @@ spawn(function()
             pcall(function()
                 if _G.FastAttackDelay == "0" then
                     _G.FastAttackDelay = 0
-                elseif _G.FastAttackDelay == "0.1" then
+                elseif _G.FastAttackDelay == "SHIN X HUB" then
                     _G.FastAttackDelay = 0.1
                 elseif _G.FastAttackDelay == "0.15" then
                     _G.FastAttackDelay = 0.15
@@ -4004,11 +3959,50 @@ while wait(.1) do
 end
 end)
 
-       Main:AddToggle("Bypass TP",BypassTP,function(value)
+local Bring = {"ปกติ", "มาก", "SHIN X HUB"}
+_G.BringMode = "ปกติ"
+Main:AddDropdown("โหมดรวมมอนสเตอร์", Bring,function(value)
+    _G.BringMode = value
+end)
+spawn(function()
+    while wait(.1) do
+        if _G.BringMode then
+            pcall(function()
+                if _G.BringMode == "ปกติ" then
+                    _G.BringMode = 250
+                elseif _G.BringMode == "มาก" then
+                    _G.BringMode = 300
+                elseif _G.BringMode == "SHIN X HUB" then
+                    _G.BringMode = 350
+                end
+            end)
+        end
+    end
+end)
+
+       Main:AddToggle("บายพาส เทเลพอร์ต | มันไม่ค่อยจะติด",BypassTP,function(value)
         BypassTP = value
     end)
+
+Main:AddToggle("ตีเร็ว ",true,function(value)
+        _G.FastAttack = value
+    end)      
+
+    Main:AddToggle("ออโต้ สกิวเผ่า วี3",_G.AutoAgility,function(value)
+        _G.AutoAgility = value
+    end)
     
-       Main:AddToggle("Turn On V4 Race",false,function(value)
+    spawn(function()
+        pcall(function()
+            while wait() do
+                if _G.AutoAgility then
+                    game:GetService("ReplicatedStorage").Remotes.CommE:FireServer("ActivateAbility")
+                end
+            end
+        end)
+    end)
+
+       Main:AddToggle("ออโต้ ใช้สกิวเผ่า วี4",false,function(value)
         AutoAwakeningRace = value
        end)
  
@@ -4017,37 +4011,57 @@ end)
 		       pcall(function()
 			       if AutoAwakeningRace then
 				       game:GetService("VirtualInputManager"):SendKeyEvent(true,"Y",false,game)
-				       wait(0.1)
+				       wait(0.35)
                        game:GetService("VirtualInputManager"):SendKeyEvent(false,"Y",false,game)
 			       end
 		       end)
            end
        end)
-       
-       Main:AddToggle("Set Spawn Point",true,function(value)
-    _G.Set = value
-end)
 
-spawn(function()
-   while wait() do
-      if _G.Set then
-         pcall(function()
-         local args = {
-         [1] = "SetSpawnPoint"
-         }
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-      end)
-    end
-  end
-end)
+Main:AddToggle("รวมมอนสเตอร์",true,function(Mag)
+    _G.BringMonster = Mag
+    end)
+    spawn(function()
+        while task.wait() do
+            pcall(function()
+                if _G.BringMonster then
+                    CheckQuest()
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if _G.AutoFarm and StartMagnet and v.Name == Mon and (Mon == "Factory Staff" or Mon == "Monkey" or Mon == "Dragon Crew Warrior" or Mon == "Dragon Crew Archer") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 220 then
+                            v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                            v.HumanoidRootPart.CFrame = PosMon
+                            v.Humanoid:ChangeState(14)
+                            v.HumanoidRootPart.CanCollide = false
+                            v.Head.CanCollide = false
+                            if v.Humanoid:FindFirstChild("Animator") then
+                                v.Humanoid.Animator:Destroy()
+                            end
+                            sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                        elseif _G.AutoFarm and StartMagnet and v.Name == Mon and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
+                            v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                            v.HumanoidRootPart.CFrame = PosMon
+                            v.Humanoid:ChangeState(14)
+                            v.HumanoidRootPart.CanCollide = false
+                            v.Head.CanCollide = false
+                            if v.Humanoid:FindFirstChild("Animator") then
+                                v.Humanoid.Animator:Destroy()
+                            end
+                            sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                        end
+                    end
+                end
+            end)
+        end
+    end)
 
-Main:AddToggle("Fast Attack ",true,function(value)
-        _G.FastAttack = value
-    end)      
-
-   Main:AddSeperator("Farm Level,...")
+    PosY = 30
+    Main:AddSlider("ความสูงการบิน",0,50,45,function(value)
+    PosY = value
+    end)
+    
+   Main:AddSeperator("เลเวล")
    
-    Main:AddToggle("Farm Level",_G.AutoFarm,function(value)
+    Main:AddToggle("ออโต้ ฟาร์ม เลเวล",_G.AutoFarm,function(value)
         _G.AutoFarm = value
         StopTween(_G.AutoFarm)
         saveSettings()
@@ -4151,7 +4165,7 @@ Main:AddToggle("Fast Attack ",true,function(value)
         end
     end)
 
-   Main:AddToggle("Farm Nearest ",_G.AutoFarmNearest,function(value)
+   Main:AddToggle("ฟาร์ม มอนสเตอร์ รอบๆ ",_G.AutoFarmNearest,function(value)
    _G.AutoFarmNearest = value
    StopTween(_G.AutoFarmNearest)
  end)
@@ -4187,10 +4201,8 @@ spawn(function()
 		end
 	end
     end)
-  
-    Main:AddLabel("Chest Farm")
     
-Main:AddToggle("Farm Chest | Safe ",false,function(value)
+Main:AddToggle("ฟาร์ม กล่อง | ปกติ",false,function(value)
  AutoFarmChest = value
  StopTween(AutoFarmChest)
  end)
@@ -4219,7 +4231,7 @@ spawn(function()
 	end
 end)
 
-Main:AddToggle("Farm Chest Bypass | Risk Kick",false,function(vu)
+Main:AddToggle("ฟาร์ม กล่อง บายพาส | เสี่ยงนะระวัง",false,function(vu)
 	_G.ChestBypass = vu
 end)
 
@@ -4256,28 +4268,26 @@ if _G.ChestBypass then
      end
 end
 end)
-
-    Main:AddSeperator("Dough Boss")
     
-        local MobKilled = Main:AddLabel("Killed")
+        local MobKilled = Main:AddLabel("ฆ่า")
     
     spawn(function()
         while wait() do
             pcall(function()
                 if string.len(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner")) == 88 then
-                    MobKilled:Set("Defeat : "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,41))
+                    MobKilled:Set("จำนวน | "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,41))
                 elseif string.len(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner")) == 87 then
-                    MobKilled:Set("Defeat : "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,40))
+                    MobKilled:Set("จำนวน | "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,40))
                 elseif string.len(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner")) == 86 then
-                    MobKilled:Set("Defeat : "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,39))
+                    MobKilled:Set("จำนวน | "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,39))
                 else
-                    MobKilled:Set("Boss Is Spawning")
+                    MobKilled:Set("คาตาคุริ 🟢")
                 end
             end)
         end
     end)
 
-    Main:AddButton("Bypass Cake Island Teleport",function()
+    Main:AddButton("บายพาส เทเลพอร์ต ไปที่เกาะคาตาคุริ",function()
         if BypassTP then
             local cakepos = CFrame.new(-2077, 252, -12373)
             BTP(cakepos)
@@ -4290,7 +4300,7 @@ end)
         end
     end)
     
-    Main:AddToggle("Farm Cake Prince",_G.AutoDoughtBoss,function(value)
+    Main:AddToggle("ออโต้ ฟาร์ม คาตาคุริ",_G.AutoDoughtBoss,function(value)
         _G.AutoDoughtBoss = value
         StopTween(_G.AutoDoughtBoss)
     end)
@@ -4393,11 +4403,11 @@ end)
         end
     end)    
     
-    Main:AddToggle("Spawn Cake Prince",true,function(value)
+    Main:AddToggle("ออโต้ เสกคาตาคุริ",true,function(value)
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner",value)
     end)
     
-    Main:AddToggle("Farm Dough King", _G.Autodoughking,function(value)
+    Main:AddToggle("ออโต้ ฆ่าคาตาคุริ | อย่างเดียวไม่ทำอย่างอื่น", _G.Autodoughking,function(value)
          _G.Autodoughking = value
         StopTween( _G.Autodoughking)
     end)
@@ -4442,7 +4452,98 @@ end)
             end
         end
     end)
-   
+    
+    BoneCheck = Main:AddLabel("โลก 3 นะครับ ")
+    
+    spawn(function()
+        while wait() do
+            pcall(function()
+                BoneCheck:Set("ตอนนี้คุณมีกระดูกอยู่ | "..(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Check")))
+            end)
+        end
+    end)
+    
+    local BoneFarm = Main:AddToggle("ออโต้ ฟาร์ม กระดูก",_G.Auto_Bone,function(value)
+        _G.Auto_Bone = value
+        StopTween(_G.Auto_Bone)
+    end)
+    
+    spawn(function()
+        while wait() do 
+            local boneframe = CFrame.new(-9508.5673828125, 142.1398468017578, 5737.3603515625)
+            if _G.Auto_Bone and World3 then
+                pcall(function()
+                    if BypassTP then
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - boneframe.Position).Magnitude > 2000 then
+                            BTP(boneframe)
+                            wait(.1)
+                            for i = 1, 8 do
+                                game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(boneframe)
+			                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")	
+                                wait(.1)		
+                            end
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - boneframe.Position).Magnitude < 2000 then
+                            wait(.1) 
+                            TP1(boneframe)
+                        end
+                    else
+                        wait(.1) 
+                        TP1(boneframe)
+                    end
+                    if game:GetService("Workspace").Enemies:FindFirstChild("BjirKowi") or game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == "BjirKowi" or v.Name == "Reborn Skeleton" or v.Name == "Living Zombie" or v.Name == "Demonic Soul" or v.Name == "Posessed Mummy" then
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    repeat task.wait()
+                                        AutoHaki()
+                                        EquipWeapon(_G.SelectWeapon)
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.Humanoid.WalkSpeed = 0
+                                        v.Head.CanCollide = false 
+                                        StartMagnetBoneMon = true
+                                        PosMonBone = v.HumanoidRootPart.CFrame
+                                        HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
+                                        game:GetService("VirtualUser"):CaptureController()
+                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                    until not _G.Auto_Bone or not v.Parent or v.Humanoid.Health <= 0
+                                end
+                            end
+                        end
+                    else
+                        StartMagnetBoneMon = false
+    					HyperCahaya(CFrame.new(-9506.234375, 172.130615234375, 6117.0771484375))
+                        for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do 
+                            if v.Name == "BjirKowi" then
+                                HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                            elseif v.Name == "Reborn Skeleton" then
+                                HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                            elseif v.Name == "Living Zombie" then
+                                HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                            elseif v.Name == "Demonic Soul" then
+                                HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                            elseif v.Name == "Posessed Mummy" then
+                                HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+    end)    
+
+    Main:AddToggle("สุ่มโบน",_G.Auto_Random_Bone,function(value)
+        _G.Auto_Random_Bone = value
+    end)
+    
+    spawn(function()
+        pcall(function()
+            while wait(.0000000000000000000000000000000000000000000000000000000) do
+                if _G.Auto_Random_Bone then    
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
+                end
+            end
+        end)
+    end)
     
     Main:AddSeperator("Boss")
     
@@ -4590,260 +4691,9 @@ end)
     
     Main:AddSeperator("Setting Farm 2")
     
-Main:AddToggle("Bring Mob",true,function(Mag)
-    _G.BringMonster = Mag
-    end)
-    spawn(function()
-        while task.wait() do
-            pcall(function()
-                if _G.BringMonster then
-                    CheckQuest()
-                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                        if _G.AutoFarm and StartMagnet and v.Name == Mon and (Mon == "Factory Staff" or Mon == "Monkey" or Mon == "Dragon Crew Warrior" or Mon == "Dragon Crew Archer") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 220 then
-                            v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                            v.HumanoidRootPart.CFrame = PosMon
-                            v.Humanoid:ChangeState(14)
-                            v.HumanoidRootPart.CanCollide = false
-                            v.Head.CanCollide = false
-                            if v.Humanoid:FindFirstChild("Animator") then
-                                v.Humanoid.Animator:Destroy()
-                            end
-                            sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-                        elseif _G.AutoFarm and StartMagnet and v.Name == Mon and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
-                            v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                            v.HumanoidRootPart.CFrame = PosMon
-                            v.Humanoid:ChangeState(14)
-                            v.HumanoidRootPart.CanCollide = false
-                            v.Head.CanCollide = false
-                            if v.Humanoid:FindFirstChild("Animator") then
-                                v.Humanoid.Animator:Destroy()
-                            end
-                            sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-                        end
-                    end
-                end
-            end)
-        end
-    end)
+
     
-local Bring = {"Low", "Normal", "Super Bring"}
-_G.BringMode = "Normal"
-Main:AddDropdown("Bring Mob Mode", Bring,function(value)
-    _G.BringMode = value
-end)
-spawn(function()
-    while wait(.1) do
-        if _G.BringMode then
-            pcall(function()
-                if _G.BringMode == "Low" then
-                    _G.BringMode = 250
-                elseif _G.BringMode == "Normal" then
-                    _G.BringMode = 300
-                elseif _G.BringMode == "Super Bring" then
-                    _G.BringMode = 350
-                end
-            end)
-        end
-    end
-end)
     
-Main:AddToggle("Buso Haki",true,function(value)
-_G.AUTOHAKI = value
-end)
-spawn(function()
-    while wait(.1) do
-        if _G.AUTOHAKI then 
-            if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
-                local args = {
-                    [1] = "Buso"
-                }
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-            end
-        end
-    end
-end)
-
-    Main:AddToggle("Fast Attack [ SUPER OP ]",false,function(value)
-       _G.HyperSonic = value
-    end)      
-    
-local CameraShaker = require(game.ReplicatedStorage.Util.CameraShaker)
-CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
-y = debug.getupvalues(CombatFrameworkR)[2]
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.FastAttack or _G.HyperSonic then
-            if typeof(y) == "table" then
-                pcall(function()
-                    CameraShaker:Stop()
-                    y.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
-                    y.activeController.timeToNextAttack = 0
-                    y.activeController.hitboxMagnitude = 60
-                    y.activeController.active = false
-                    y.activeController.timeToNextBlock = 0
-                    y.activeController.focusStart = 1655503339.0980349
-                    y.activeController.increment = 1
-                    y.activeController.blocking = false
-                    y.activeController.attacking = false
-                    y.activeController.humanoid.AutoRotate = true
-                end)
-            end
-        end
-    end)
-end)
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.FastAttack == true or _G.HyperSonic == true then
-            game.Players.LocalPlayer.Character.Stun.Value = 0
-            game.Players.LocalPlayer.Character.Busy.Value = false        
-        end
-    end)
-end)
-    
-spawn(function()
-while wait(.1) do
-    if _G.HyperSonic then
-        pcall(function()
-            repeat task.wait(0,09)
-                AttackHit()
-            until not _G.HyperSonic
-        end)
-    end
-end
-end)    
-    
-Main:AddToggle("Auto Click",false,function(value)
-_G.AutoClick = value
-end)
-
-Main:AddToggle("Remove Notifications Text",false,function(NamfonGay)
-_G.Remove_trct = NamfonGay
-end)
-
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.Remove_trct == true then
-            game:GetService("ReplicatedStorage").Notification:Destroy()        
-        end
-    end)
-end)
-
-Main:AddToggle("Remove Hit Sound And Level Up",false,function(Remo)
-_G.RemoveHit = Remo
-end)
-
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.RemoveHit == true then
-            game:GetService("ReplicatedStorage").Effect.Container.LevelUp:Destroy()
-            game:GetService("ReplicatedStorage").Util.Sound:Destroy()
-            game:GetService("ReplicatedStorage").Util.Sound.Storage.Other:FindFirstChild("LevelUp_Proxy"):Destroy()
-            game:GetService("ReplicatedStorage").Util.Sound.Storage.Other:FindFirstChild("LevelUp"):Destroy()
-            game:GetService("ReplicatedStorage").Effect.Container.Respawn:Destroy()        
-        end
-    end)
-end)
-
-
-    Main:AddToggle("Remove Attack",false,function(value)
-    getgenv().A = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).wrapAttackAnimationAsync 
-getgenv().B = require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.Particle).play
-spawn(function()
-
-    while wait() do
-            pcall(function()
-                require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).wrapAttackAnimationAsync =function(a1,a2,a3,a4,a5)
-                    local GetBladeHits = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).getBladeHits(a2,a3,a4)
-                    if GetBladeHits then
-                         require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).play = function() end
-                        a1:Play(0.2, 0.2, 0.2)
-                        a5(GetBladeHits)
-                         require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).play = getgenv().B 
-                        wait(.5)
-                        a1:Stop()
-                    end
-                end
-            end)
-        
-    end
-end)
-   end)
-   
-    
-    spawn(function()
-      while wait() do
-      if _G.WhiteScreen then
-        for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
-            if v.Name == "CurvedRing" or v.Name == "SlashHit" or v.Name == "DamageCounter" or v.Name == "SwordSlash" or v.Name == "SlashTail" or v.Name == "Sounds" then
-                v:Destroy() 
-            end
-        end
-    end
-    end
-end) 
-    
-        Main:AddToggle("White Screen",_G.WhiteScreen,function(value)
-    _G.WhiteScreen = value
-if _G.WhiteScreen == true then
-    game:GetService("RunService"):Set3dRenderingEnabled(false)
-elseif _G.WhiteScreen == false then
-    game:GetService("RunService"):Set3dRenderingEnabled(true)
-end
-end)
-
-    Main:AddToggle("Invisible Monsters",_G.inv,function(value)
-    _G.inv = value
-    
-         while wait() do
-             if _G.inv then
-             pcall(function()
-     for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
-         if v.ClassName == "MeshPart" then
-             v.Transparency = 1
-     end
-     end
-     for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
-         if v.Name == "Head" then
-         v.Transparency = 1
-     end
-     end
-         for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
-             if v.ClassName == "Accessory" then
-                 v.Handle.Transparency = 1
-             end
-         end
-         for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
-             if v.ClassName == "Decal" then
-             v.Transparency = 1
-              end
-            end
-          end)
-        end
-      end
-    end)
-    
-    Main:AddSeperator("Setting Farm Mode")
-
-    Main:AddLabel("Pos X Front")
-    Main:AddLabel("Pos Y High and low")
-    Main:AddLabel("Pos Z Behind")
-
-    PosX = 1
-    Main:AddSlider("Pos X",0,50,1,function(value)
-    PosX = value
-    end)
-
-    PosY = 30
-    Main:AddSlider("Pos Y",0,50,45,function(value)
-    PosY = value
-    end)
-
-    PosZ = 10
-    Main:AddSlider("Pos Z",0,50,40,function(value)
-    PosZ = value
-    end)
-    
-
     Main:AddSeperator("Misc Setting Mastery")
     
     _G.Kill_At = 50
@@ -9141,133 +8991,6 @@ end)
         end)
     end)
     
-    M:AddSeperator("Misc Bone")
-    
-    BoneCheck = M:AddLabel("Your Bone: Third World ")
-    
-    spawn(function()
-        while wait() do
-            pcall(function()
-                BoneCheck:Set("Your Bone: "..(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Check")))
-            end)
-        end
-    end)
-    
-    local BoneFarm = M:AddToggle("Farm Bone",_G.Auto_Bone,function(value)
-        _G.Auto_Bone = value
-        StopTween(_G.Auto_Bone)
-    end)
-    
-    spawn(function()
-        while wait() do 
-            local boneframe = CFrame.new(-9508.5673828125, 142.1398468017578, 5737.3603515625)
-            if _G.Auto_Bone and World3 then
-                pcall(function()
-                    if BypassTP then
-                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - boneframe.Position).Magnitude > 2000 then
-                            BTP(boneframe)
-                            wait(.1)
-                            for i = 1, 8 do
-                                game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(boneframe)
-			                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")	
-                                wait(.1)		
-                            end
-                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - boneframe.Position).Magnitude < 2000 then
-                            wait(.1) 
-                            TP1(boneframe)
-                        end
-                    else
-                        wait(.1) 
-                        TP1(boneframe)
-                    end
-                    if game:GetService("Workspace").Enemies:FindFirstChild("BjirKowi") or game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy") then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v.Name == "BjirKowi" or v.Name == "Reborn Skeleton" or v.Name == "Living Zombie" or v.Name == "Demonic Soul" or v.Name == "Posessed Mummy" then
-                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    repeat task.wait()
-                                        AutoHaki()
-                                        EquipWeapon(_G.SelectWeapon)
-                                        v.HumanoidRootPart.CanCollide = false
-                                        v.Humanoid.WalkSpeed = 0
-                                        v.Head.CanCollide = false 
-                                        StartMagnetBoneMon = true
-                                        PosMonBone = v.HumanoidRootPart.CFrame
-                                        HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
-                                        game:GetService("VirtualUser"):CaptureController()
-                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                    until not _G.Auto_Bone or not v.Parent or v.Humanoid.Health <= 0
-                                end
-                            end
-                        end
-                    else
-                        StartMagnetBoneMon = false
-    					HyperCahaya(CFrame.new(-9506.234375, 172.130615234375, 6117.0771484375))
-                        for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do 
-                            if v.Name == "BjirKowi" then
-                                HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                            elseif v.Name == "Reborn Skeleton" then
-                                HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                            elseif v.Name == "Living Zombie" then
-                                HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                            elseif v.Name == "Demonic Soul" then
-                                HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                            elseif v.Name == "Posessed Mummy" then
-                                HyperCahaya(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                            end
-                        end
-                    end
-                end)
-            end
-        end
-    end)    
-
-    M:AddToggle("Random Surprise",_G.Auto_Random_Bone,function(value)
-        _G.Auto_Random_Bone = value
-    end)
-    
-    spawn(function()
-        pcall(function()
-            while wait(.1) do
-                if _G.Auto_Random_Bone then    
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
-                end
-            end
-        end)
-    end)
-    
-    M:AddToggle("Pray",pry,function(value)
-    _G.Pray = value
-    end)
-    
-    spawn(function()
-        pcall(function()
-            while wait(.1) do
-                if _G.Pray then    
-                    TP1(CFrame.new(-8652.99707, 143.450119, 6170.50879, -0.983064115, -2.48005533e-10, 0.18326205, -1.78910387e-09, 1, -8.24392288e-09, -0.18326205, -8.43218029e-09, -0.983064115))
-                    wait()
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("gravestoneEvent",1)
-                end
-            end
-        end)
-    end)
-    
-    
-    M:AddToggle("Try Luck",Trylux,function(value)
-    _G.Trylux = value
-    end)
-    
-    spawn(function()
-        pcall(function()
-            while wait(.1) do
-                if _G.Trylux then    
-                    TP1(CFrame.new(-8652.99707, 143.450119, 6170.50879, -0.983064115, -2.48005533e-10, 0.18326205, -1.78910387e-09, 1, -8.24392288e-09, -0.18326205, -8.43218029e-09, -0.983064115))
-                    wait()
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("gravestoneEvent",2)
-                end
-            end
-        end)
-    end)
-                
     M:AddSeperator("Observation")
     
     local ObservationRange = M:AddLabel("")
@@ -14010,20 +13733,6 @@ end)
     Misc:AddToggle("Dodge No Cooldown",false,function(value)
         nododgecool = value
         NoDodgeCool()
-    end)
-    
-    Misc:AddToggle("Auto Active Race",_G.AutoAgility,function(value)
-        _G.AutoAgility = value
-    end)
-    
-    spawn(function()
-        pcall(function()
-            while wait() do
-                if _G.AutoAgility then
-                    game:GetService("ReplicatedStorage").Remotes.CommE:FireServer("ActivateAbility")
-                end
-            end
-        end)
     end)
     
     Misc:AddToggle("Infinite Soru",getgenv().InfSoru,function(value)
