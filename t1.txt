@@ -2,7 +2,7 @@ repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
 _G.Primary = Color3.fromRGB(255, 255, 255)
 _G.Dark = Color3.fromRGB(0, 105, 148)
 ----------------------------------------------------------------------------------------------------------------------------------------
-_G.TieuDe = "HUNTER X HUB"
+_G.TieuDe = "SHIN X HUB"
 _G.ThongBaoChoose = "Blox Fruits"
 
 _G.YouTube = "https://www.youtube.com/@SCARLET-XD-MIKIMARU-HUB-"
@@ -131,7 +131,7 @@ for _, player in ipairs(Players:GetPlayers()) do
     end
 end
 print("Anti Cheat Bypass Active")
-print("HUNTER X HUB")
+print("SHIN X HUB")
 warn("Cúc")
 warn("Cặc")
 print("Xàm Lồn")
@@ -225,7 +225,7 @@ local keybind = keybind or Enum.KeyCode.RightControl
 local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 
 local Galaxy = Instance.new("ScreenGui")
-Galaxy.Name = "HUNTER X HUB"
+Galaxy.Name = "SHIN X HUB"
 Galaxy.Parent = game.CoreGui
 Galaxy.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -287,7 +287,7 @@ ttittles.BackgroundTransparency = 1
 ttittles.Position = UDim2.new(0,30,0.05,0)
 ttittles.Size = UDim2.new(0, 255, 0.05, 25)
 ttittles.Font = Enum.Font.SourceSansBold
-ttittles.Text = "HUNTER X HUB"
+ttittles.Text = "SHIN X HUB"
 ttittles.TextSize = 15.000
 ttittles.TextColor3 = Color3.fromRGB(255, 255, 255)
 ttittles.TextXAlignment = Enum.TextXAlignment.Left
@@ -4440,14 +4440,14 @@ local S = Library:AddTab("Shop","rbxassetid://17864195913")
 local D = Library:AddTab("Fruit","rbxassetid://17864195913")
 local Misc = Library:AddTab("Miscellaneous","rbxassetid://17864195913")
 --------------------------------------------------------------------------------------------------------
-Galaxy:AddSeperator("HUNTER X HUB")
+Galaxy:AddSeperator("SHIN X HUB")
 Galaxy:UserGalaxy()
-local Creator = Galaxy:AddLabel('Hello '..game.Players.LocalPlayer.Name.." To HUNTER X HUB Thanks Using")
+local Creator = Galaxy:AddLabel('Hello '..game.Players.LocalPlayer.Name.." To SHIN X HUB Thanks Using")
 
 spawn(function()
     while wait() do
         pcall(function()
-            if game.Players.LocalPlayer.Name == "HUNTER X HUB" then
+            if game.Players.LocalPlayer.Name == "SHIN X HUB" then
             Creator:Set("Hello Developer Welcome Back")
             end
         end)
@@ -4606,6 +4606,10 @@ spawn(function()
             end
         end
     end
+end)
+
+Settings:AddToggle("หมุน",true,function(value)
+_G.SpinPos = value
 end)
 
 Settings:AddToggle("Fast Attack",true,function(value)
