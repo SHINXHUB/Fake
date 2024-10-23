@@ -4058,7 +4058,53 @@ Main:AddToggle("รวมมอนสเตอร์",true,function(Mag)
     Main:AddSlider("ความสูงการบิน",0,50,45,function(value)
     PosY = value
     end)
-    
+
+local WeaponList = {"หมัด","ดาบ","ผล"}
+_G.SelectWeapon = "หมัด"
+Main:AddDropdown("เลือกอาวุธ",WeaponList,function(value)
+_G.SelectWeapon = value
+end)
+
+task.spawn(function()
+    while wait() do
+        pcall(function()
+            if _G.SelectWeapon == "หมัด" then
+                for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.ToolTip == "Melee" then
+                        if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                            _G.SelectWeapon = v.Name
+                        end
+                    end
+                end
+            elseif _G.SelectWeapon == "ดาบ" then
+                for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.ToolTip == "Sword" then
+                        if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                            _G.SelectWeapon = v.Name
+                        end
+                    end
+                end
+            elseif _G.SelectWeapon == "ปืน" then
+                for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.ToolTip == "Gun" then
+                        if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                            _G.SelectWeapon = v.Name
+                        end
+                    end
+                end
+            elseif _G.SelectWeapon == "ผล" then
+                for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.ToolTip == "Blox Fruit" then
+                        if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                            _G.SelectWeapon = v.Name
+                        end
+                    end
+                end
+            end
+        end)
+    end
+    end)
+ 
    Main:AddSeperator("เลเวล")
    
     Main:AddToggle("ออโต้ ฟาร์ม เลเวล",_G.AutoFarm,function(value)
