@@ -1,6 +1,6 @@
 repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
-_G.Primary = Color3.fromRGB(255, 255, 255)
-_G.Dark = Color3.fromRGB(0, 105, 148)
+_G.Primary = Color3.fromRGB(0, 0, 0)
+_G.Dark = Color3.fromRGB(0, 0, 0)
 ----------------------------------------------------------------------------------------------------------------------------------------
 _G.TieuDe = "SHIN X HUB"
 _G.ThongBaoChoose = "Blox Fruits"
