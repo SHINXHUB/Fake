@@ -4164,9 +4164,9 @@ function TP1(Pos)
     function TP(Pos)
         Distance = (Pos.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
         if Distance < 250 then
-            Speed = 900
+            Speed = 90089
         elseif Distance >= 1000 then
-            Speed = 350
+            Speed = 360
         end
         game:GetService("TweenService"):Create(
             game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
@@ -17138,70 +17138,35 @@ spawn(function()
     end)
 FakeDamage("เดี๋ยวมึงโดนเตะ")
 ----------------------------------------------------------------------------------------------------------------------------------------
+local ScreenGui1 = Instance.new("ScreenGui")
+local ImageButton1 = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
-local ToggleScreen = Instance.new("ScreenGui")
-ToggleScreen.Name = "ToggleScreen"
-ToggleScreen.Parent = game.CoreGui
-ToggleScreen.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-local ToggleToggle = Instance.new("TextButton")
-ToggleToggle.Name = "ToggleToggle"
-ToggleToggle.Parent = ToggleScreen
-ToggleToggle.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
-ToggleToggle.BackgroundTransparency = 1.000
-ToggleToggle.BorderSizePixel = 0
-ToggleToggle.Position = UDim2.new(0.5, -25, 0, 0) 
-ToggleToggle.Size = UDim2.new(0, 50, 0, 50)
-ToggleToggle.Font = Enum.Font.SourceSans
-ToggleToggle.Text = ""
-ToggleToggle.TextColor3 = Color3.fromRGB(0, 0, 0)
-ToggleToggle.TextSize = 14.000
-ToggleToggle.Draggable = true
+ScreenGui1.Name = "ImageButton"
+ScreenGui1.Parent = game.CoreGui
+ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-local ToggleToggleFrame = Instance.new("Frame")
-ToggleToggleFrame.Name = "ToggleToggleFrame"
-ToggleToggleFrame.Parent = ToggleToggle
-ToggleToggleFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  -- Set to white for better gradient effect
-ToggleToggleFrame.BackgroundTransparency = 1.000
-ToggleToggleFrame.BorderSizePixel = 0
-ToggleToggleFrame.Position = UDim2.new(0, -2, 0, -2)  -- Expand the frame to cover the border
-ToggleToggleFrame.Size = UDim2.new(1, 4, 1, 4)  -- Expand the frame to cover the border
-
-UICorner.CornerRadius = UDim.new(0, 90)
-UICorner.Parent = ToggleToggleFrame
-
-local ToggleImageUI = Instance.new("Frame")
-ToggleImageUI.Name = "MODILEMAGE"
-ToggleImageUI.Parent = ToggleToggle
-ToggleImageUI.BackgroundColor3 = Color3.fromRGB(192, 192, 192)
-ToggleImageUI.BackgroundTransparency = 1.000
-ToggleImageUI.BorderSizePixel = 0
-ToggleImageUI.Position = UDim2.new(0.0, 0, 0.0, 0)
-ToggleImageUI.Size = UDim2.new(0, 50, 0, 50)
-
-
-local ToggleImageLabel = Instance.new("ImageLabel")
-ToggleImageLabel.Name = "ToggleImageLabel"
-ToggleImageLabel.Parent = ToggleImageUI
-ToggleImageLabel.BackgroundTransparency = 1.000
-ToggleImageLabel.Size = UDim2.new(1, 0, 1, 0)
-ToggleImageLabel.Image = "rbxassetid://137194428203692" --[[can change]]
-ToggleImageLabel.ScaleType = Enum.ScaleType.Slice
-ToggleImageLabel.SliceCenter = Rect.new(50, 50, 50, 50)
-
-ToggleToggle.MouseButton1Click:Connect(function()
-game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
-game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
+ImageButton1.Parent = ScreenGui1
+ImageButton1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton1.BorderSizePixel = 0
+ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+ImageButton1.Size = UDim2.new(0, 50, 0, 50)
+ImageButton1.Draggable = true
+ImageButton1.Image = "rbxassetid://102152430984661"
+ImageButton1.MouseButton1Down:connect(function()
+  game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
+  game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
 end)
+UICorner.Parent = ImageButton1
 ----------------------------------------------------------------------------------------------------------------------------------------
-Notification.Notify("Notification", "ขอบคุณที่ใช้ ชิน เอ็กซ์ ฮับ", "rbxassetid://17864195913", {
+Notification.Notify("Notification", "ขอบคุณที่ใช้ SHIN X HUB", "rbxassetid://102152430984661", {
     Duration = 5,       
     Main = {
         Rounding = true,
     }
     });
 wait(6)
-Notification.Notify("Notification", "ถ้าคุณใช้ตัวรัน Fluxus  สคริปต์จะเสถียรขึ้น", "rbxassetid://17416719866", {
+Notification.Notify("Notification", "ถ้าคุณใช้ตัวรัน Fluxus  สคริปต์จะเสถียรขึ้น", "rbxassetid://102152430984661", {
     Duration = 10,       
     Main = {
         Rounding = true,
