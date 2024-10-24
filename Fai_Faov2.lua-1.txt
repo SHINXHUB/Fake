@@ -2555,7 +2555,7 @@ local Farming = Tabs.Main:AddSection("Farming")
     while wait(.1) do
         if _G.FastAttack4 then
             pcall(function()
-                repeat task.wait(0.05)
+                repeat task.wait(0.25)
                     AttackNoCD()
                 until not _G.FastAttack4
             end)
