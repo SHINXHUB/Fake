@@ -4164,9 +4164,9 @@ function TP1(Pos)
     function TP(Pos)
         Distance = (Pos.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
         if Distance < 250 then
-            Speed = 90089
+            Speed = 9008977777777799998799
         elseif Distance >= 1000 then
-            Speed = 360
+            Speed = 380
         end
         game:GetService("TweenService"):Create(
             game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
@@ -4421,6 +4421,163 @@ getgenv().ToTargets = function(p)
         wait(1)
         game:GetService("VirtualUser"):Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
     end)
+
+------AttackNoCD
+
+    local plr = game.Players.LocalPlayer
+	local CbFw = getupvalues(require(plr.PlayerScripts.CombatFramework))
+	local CbFw2 = CbFw[2]
+
+    function GetCurrentBlade() 
+        local p13 = CbFw2.activeController
+        local ret = p13.blades[1]
+        if not ret then return end
+        while ret.Parent~=game.Players.LocalPlayer.Character do ret=ret.Parent end
+        return ret
+    end
+    
+    function AttackNoCD()
+        if not AutoFarmMasDevilFruit or AutoFarmMasGun then
+            if not Auto_Raid then
+                local AC = CbFw2.activeController
+                for i = 1, 1 do 
+                    local bladehit = require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(
+                        plr.Character,
+                        {plr.Character.HumanoidRootPart},
+                        60
+                    )
+                    local cac = {}
+                    local hash = {}
+                    for k, v in pairs(bladehit) do
+                        if v.Parent:FindFirstChild("HumanoidRootPart") and not hash[v.Parent] then
+                            table.insert(cac, v.Parent.HumanoidRootPart)
+                            hash[v.Parent] = true
+                        end
+                    end
+                    bladehit = cac
+                    if #bladehit > 0 then
+                        local u8 = debug.getupvalue(AC.attack, 5)
+                        local u9 = debug.getupvalue(AC.attack, 6)
+                        local u7 = debug.getupvalue(AC.attack, 4)
+                        local u10 = debug.getupvalue(AC.attack, 7)
+                        local u12 = (u8 * 798405 + u7 * 727595) % u9
+                        local u13 = u7 * 798405
+                        (function()
+                            u12 = (u12 * u9 + u13) % 1099511627776
+                            u8 = math.floor(u12 / u9)
+                            u7 = u12 - u8 * u9
+                        end)()
+                        u10 = u10 + 1
+                        debug.setupvalue(AC.attack, 5, u8)
+                        debug.setupvalue(AC.attack, 6, u9)
+                        debug.setupvalue(AC.attack, 4, u7)
+                        debug.setupvalue(AC.attack, 7, u10)
+                        pcall(function()
+                            if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then
+                                AC.animator.anims.basic[1]:Play(0.01,0.01,0.01)
+                                game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(GetCurrentBlade()))
+                                game.ReplicatedStorage.Remotes.Validator:FireServer(math.floor(u12 / 1099511627776 * 16777215), u10)
+                                game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, i, "")
+                            end
+                        end)
+                    end
+                end
+            end
+        end
+    end
+    
+--Attack Mastery
+    function NormalAttack()
+        if not _G.NormalAttack then
+            local Module = require(game.Players.LocalPlayer.PlayerScripts.CombatFramework)
+            local CombatFramework = debug.getupvalues(Module)[2]
+            local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
+            CamShake:Stop()
+            CombatFramework.activeController.attacking = false
+            CombatFramework.activeController.timeToNextAttack = 0
+            CombatFramework.activeController.hitboxMagnitude = 180
+            game:GetService'VirtualUser':CaptureController()
+            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+        end
+    end
+
+local PBlade = game.Players.LocalPlayer
+local QBlade = getupvalues(require(PBlade.PlayerScripts.CombatFramework))
+local RBlade = QBlade[2]
+function GetCurrentBlade()
+    local S = RBlade.activeController
+    local T = S.blades[1]
+    if not T then
+        return
+    end
+    while T.Parent ~= game.Players.LocalPlayer.Character do
+        T = T.Parent
+    end
+    return T
+end
+
+function AttackNoCD()
+    if not _G.AutoFarmFruitMastery or not _G.AutoFarmGunMastery then
+        if _G.FastAttack then
+            local U = RBlade.activeController
+            for h = 1, 1 do
+                local V =
+                    require(game.ReplicatedStorage.CombatFramework.RigLib).getBladeHits(
+                    PBlade.Character,
+                    {PBlade.Character.HumanoidRootPart},
+                    60
+                )
+                local W = {}
+                local X = {}
+                for k, i in pairs(V) do
+                    if i.Parent:FindFirstChild("HumanoidRootPart") and not X[i.Parent] then
+                        table.insert(W, i.Parent.HumanoidRootPart)
+                        X[i.Parent] = true
+                    end
+                end
+                V = W
+                if #V > 0 then
+                    local Y = debug.getupvalue(U.attack, 5)
+                    local Z = debug.getupvalue(U.attack, 6)
+                    local _ = debug.getupvalue(U.attack, 4)
+                    local a0 = debug.getupvalue(U.attack, 7)
+                    local a1 = (Y * 798405 + _ * 727595) % Z
+                    local a2 = _ * 798405
+                    (function()
+                        a1 = (a1 * Z + a2) % 1099511627776
+                        Y = math.floor(a1 / Z)
+                        _ = a1 - Y * Z
+                    end)()
+                    a0 = a0 + 1
+                    debug.setupvalue(U.attack, 5, Y)
+                    debug.setupvalue(U.attack, 6, Z)
+                    debug.setupvalue(U.attack, 4, _)
+                    debug.setupvalue(U.attack, 7, a0)
+                    pcall(
+                        function()
+                            if PBlade.Character:FindFirstChildOfClass("Tool") and U.blades and U.blades[1] then
+                                U.animator.anims.basic[1]:Play(0.01, 0.01, 0.01)
+                                game:GetService("ReplicatedStorage").RigControllerEvent:FireServer(
+                                    "weaponChange",
+                                    tostring(GetCurrentBlade())
+                                )
+                                game.ReplicatedStorage.Remotes.Validator:FireServer(
+                                    math.floor(a1 / 1099511627776 * 16777215),
+                                    a0
+                                )
+                                game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", V, h, "")
+                            end
+                        end
+                    )
+                end
+            end
+        else
+            game:GetService'VirtualUser':CaptureController()
+            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+        end
+    end
+end
+
 --------------------------------------------------------------------------------------------------------
 local Library = Update:Window("SHIN X HUB","BLOX FRUIT",Enum.KeyCode.RightControl);
 --------------------------------------------------------------------------------------------------------
@@ -4454,29 +4611,10 @@ spawn(function()
     end
 end)
 
-Galaxy:AddSeperator("Developer")
-Galaxy:AddLabel("REPORT ERROR IN DISCORD")
-Galaxy:AddSeperator("HUNTER PRO")
+Galaxy:AddSeperator("SHIN X HUB")
 
 --------------------------------------------------------------------------------------------------------
 Settings:AddSeperator("Settings Farming")
-
-Settings:AddToggle("Auto Set Spawn Point", false,function(value)
-    _G.Set = value
-end)
-
-spawn(function()
-   while wait() do
-      if _G.Set then
-         pcall(function()
-         local args = {
-         [1] = "SetSpawnPoint"
-         }
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-      end)
-    end
-  end
-end)
 
 local WeaponList = {"Melee","Sword","Fruit","Gun"}
 _G.SelectWeapon = "Melee"
@@ -4612,6 +4750,20 @@ Settings:AddToggle("หมุน",true,function(value)
 _G.SpinPos = value
 end)
 
+    Settings:AddToggle("Aura Fast Attack",true,function(value)
+        _G.AttackMob = value
+    end)
+
+    spawn(function()
+        while wait(_G.FastAttackDelay) do
+            if _G.AttackMob and not _G.AutoFarmFruitMastery and not _G.AutoFarmGunMastery then
+                pcall(function()
+                    AttackNoCD()
+                end)
+            end
+        end
+    end)
+
 Settings:AddToggle("Fast Attack",true,function(value)
     _G.FastAttack = value
 end)
@@ -4646,60 +4798,6 @@ spawn(function()
             game.Players.LocalPlayer.Character.Busy.Value = false        
         end
     end)
-end)
-local AttackList = {"0", "0.1", "0.175", "0.2", "0.25", "0.3", "0.35", "0.4", "0.45", "0.5", "0.55", "0.6", "0.65", "0.7", "0.75", "0.8", "0.85", "0.9", "0.95", "0.1"}
-_G.FastAttackDelay = "0.5"
-Settings:AddDropdown("Fast Attack Delay", AttackList,function(SimpRose)
-    _G.FastAttackDelay = SimpRose
-end)
-spawn(function()
-    while wait(.1) do
-        if _G.FastAttackDelay then
-            pcall(function()
-                if _G.FastAttackDelay == "0" then
-                    _G.FastAttackDelay = 0
-                elseif _G.FastAttackDelay == "0.1" then
-                    _G.FastAttackDelay = 0.1
-                elseif _G.FastAttackDelay == "0.175" then
-                    _G.FastAttackDelay = 0.175
-                elseif _G.FastAttackDelay == "0.2" then
-                    _G.FastAttackDelay = 0.2
-                elseif _G.FastAttackDelay == "0.25" then
-                    _G.FastAttackDelay = 0.25
-                elseif _G.FastAttackDelay == "0.3" then
-                    _G.FastAttackDelay = 0.3
-                elseif _G.FastAttackDelay == "0.35" then
-                    _G.FastAttackDelay = 0.35
-                elseif _G.FastAttackDelay == "0.4" then
-                    _G.FastAttackDelay = 0.5
-                elseif _G.FastAttackDelay == "0.45" then
-                    _G.FastAttackDelay = 0.45
-                elseif _G.FastAttackDelay == "0.5" then
-                    _G.FastAttackDelay = 0.5
-                elseif _G.FastAttackDelay == "0.55" then
-                    _G.FastAttackDelay = 0.55
-                elseif _G.FastAttackDelay == "0.6" then
-                    _G.FastAttackDelay = 0.6
-                elseif _G.FastAttackDelay == "0.65" then
-                    _G.FastAttackDelay = 0.65
-                elseif _G.FastAttackDelay == "0.7" then
-                    _G.FastAttackDelay = 0.7
-                elseif _G.FastAttackDelay == "0.75" then
-                    _G.FastAttackDelay = 0.75
-                elseif _G.FastAttackDelay == "0.8" then
-                    _G.FastAttackDelay = 0.8
-                elseif _G.FastAttackDelay == "0.85" then
-                    _G.FastAttackDelay = 0.85
-                elseif _G.FastAttackDelay == "0.9" then
-                    _G.FastAttackDelay = 0.9
-                elseif _G.FastAttackDelay == "0.95" then
-                    _G.FastAttackDelay = 0.95
-                elseif _G.FastAttackDelay == "1" then
-                    _G.FastAttackDelay = 1
-                end
-            end)
-        end
-    end
 end)
 
 Settings:AddToggle("Aura Fast Attack",true,function(value)
@@ -17172,3 +17270,30 @@ Notification.Notify("Notification", "ถ้าคุณใช้ตัวรั�
         Rounding = true,
     }
     });
+
+    -- local Client = game.Players.LocalPlayer
+    -- local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
+    -- local STOPRL = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib)
+    -- spawn(function()
+    --     while task.wait() do
+    --         pcall(function()
+    --             if not shared.orl then shared.orl = STOPRL.wrapAttackAnimationAsync end
+    --             if not shared.cpc then shared.cpc = STOP.play end
+    --                 STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
+    --                 local Hits = STOPRL.getBladeHits(b,c,d)
+    --                 if Hits then
+    --                     if _G.FastAttack or not _G.FastAttack then
+    --                         STOP.play = function() end
+    --                         a:Play(0.01,0.01,0.01)
+    --                         func(Hits)
+    --                         STOP.play = shared.cpc
+    --                         wait(a.length * 0.5)
+    --                         a:Stop()
+    --                     else
+    --                         a:Play()
+    --                     end
+    --                 end
+    --             end
+    --         end)
+    --     end
+    -- end)
