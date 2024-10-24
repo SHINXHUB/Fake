@@ -2539,12 +2539,47 @@ local Farming = Tabs.Main:AddSection("Farming")
         end
     end)
 
-    local ToggleLevel = Tabs.Main:AddToggle("ToggleLevel", {Title = "หมุน", Default = false })
-    ToggleLevel:OnChanged(function(Value)
-        _G.SpinPos = Value
+    local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
+        Title = "Weapon",
+        Values = {'0', '0.1', '0.15', '0.155', '0.16', '0.165', '0.17', '0.175', '0.18', '0.185'},
+        Multi = false,
+        Default = 1,
+    })
+    DropdownSelectWeapon:SetValue('0.15')
+    DropdownSelectWeapon:OnChanged(function(Value)
+        _G.FastAttackDelay = Value
     end)
-    Options.ToggleLevel:SetValue(false)
-    
+
+spawn(function()
+    while wait(.1) do
+        if _G.FastAttackDelay then
+            pcall(function()
+                if _G.FastAttackDelay == "0" then
+                    _G.FastAttackDelay = 0
+                elseif _G.FastAttackDelay == "0.1" then
+                    _G.FastAttackDelay = 0.1
+                elseif _G.FastAttackDelay == "0.15" then
+                    _G.FastAttackDelay = 0.15
+                elseif _G.FastAttackDelay == "0.155" then
+                    _G.FastAttackDelay = 0.155
+                elseif _G.FastAttackDelay == "0.16" then
+                    _G.FastAttackDelay = 0.16
+                elseif _G.FastAttackDelay == "0.165" then
+                    _G.FastAttackDelay = 0.165
+                elseif _G.FastAttackDelay == "0.17" then
+                    _G.FastAttackDelay = 0.17
+                elseif _G.FastAttackDelay == "0.175" then
+                    _G.FastAttackDelay = 0.175
+                elseif _G.FastAttackDelay == "0.18" then
+                    _G.FastAttackDelay = 0.18
+                elseif _G.FastAttackDelay == "0.185" then
+                    _G.FastAttackDelay = 0.185
+                end
+            end)
+        end
+    end
+end)
+
     local ToggleLevel = Tabs.Main:AddToggle("ToggleLevel", {Title = "ตั", Default = false })
     ToggleLevel:OnChanged(function(Value)
         _G.FastAttack4 = Value
