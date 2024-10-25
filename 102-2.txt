@@ -142,12 +142,12 @@ function Update:Window(text,logo,keybind)
 	Hub.Position = UDim2.new(0, 086, 0, 0)
 	Hub.Size = UDim2.new(0, 81, 0, 27)
 	Hub.Font = Enum.Font.GothamSemibold
-	Hub.Text = "               | Blox Fruits"
+	Hub.Text = "               | บล็อคซ์ ฟรุ๊ต"
 	Hub.TextColor3 = Color3.fromRGB(0,187,255)
 	Hub.TextSize = 17.000
 	Hub.TextXAlignment = Enum.TextXAlignment.Left
 
-local version = game:HttpGet("https://pastebin.com/raw/Xrna43B2")
+local version = game:HttpGet("https://pastebin.com/raw/gmwdLnEy")
 local ver = Instance.new("TextLabel")
 	ver.Name = "ver"
 	ver.Parent = Top
@@ -156,7 +156,7 @@ local ver = Instance.new("TextLabel")
 	ver.Position = UDim2.new(0.697561002, 0, 0, 0)
 	ver.Size = UDim2.new(0, 81, 0, 27)
 	ver.Font = Enum.Font.RobotoMono
-	ver.Text = "Version: "..version
+	ver.Text = "เวอร์ชั่น: "..เวอร์ชั่น
 	ver.TextColor3 = Color3.fromRGB(255,255,255)
 	ver.TextSize = 13.000
 	ver.TextXAlignment = Enum.TextXAlignment.Left
@@ -2880,7 +2880,7 @@ end
         end)
 -------------------------------------------------------------------------------------------------------------------------------------------------
 --Mainn
-local Library = Update:Window("Min Gaming Hub","rbxassetid://",Enum.KeyCode.RightControl);
+local Library = Update:Window("SHIN X HUB","rbxassetid://",Enum.KeyCode.RightControl);
 Main = Library:Tab("Chính",7072717697)
 M = Library:Tab("Vật Phẩm",7072706351)
 Ss = Library:Tab("Chỉ Số",7072706318)
