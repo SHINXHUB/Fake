@@ -10,9 +10,9 @@ ImageButton1.Parent = ScreenGui1
 ImageButton1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 ImageButton1.BorderSizePixel = 0
 ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
-ImageButton1.Size = UDim2.new(0, 50, 0, 50)
+ImageButton1.Size = UDim2.new(0, 70, 0, 60)
 ImageButton1.Draggable = true
-ImageButton1.Image = "rbxassetid://72478479095285"
+ImageButton1.Image = "rbxassetid://102152430984661"
 ImageButton1.MouseButton1Down:connect(function()
 game.CoreGui:FindFirstChild("SOMEXHUB").Enabled = not game.CoreGui:FindFirstChild("SOMEXHUB").Enabled
 end)
@@ -120,7 +120,7 @@ function Update:Window(text,logo,keybind)
 	Logo.BackgroundTransparency = 1.000
 	Logo.Position = UDim2.new(0, 10, 0, 1)
 	Logo.Size = UDim2.new(0, 25, 0, 25)
-	Logo.Image = "rbxassetid://13717478897"
+	Logo.Image = "rbxassetid://102152430984661"
 
 	local Name = Instance.new("TextLabel")
 	Name.Name = "Name"
@@ -147,7 +147,7 @@ function Update:Window(text,logo,keybind)
 	Hub.TextSize = 17.000
 	Hub.TextXAlignment = Enum.TextXAlignment.Left
 
-local version = game:HttpGet("https://raw.githubusercontent.com/accountnop/magmaisgay/main/version")
+local version = game:HttpGet("https://pastebin.com/raw/Xrna43B2")
 local ver = Instance.new("TextLabel")
 	ver.Name = "ver"
 	ver.Parent = Top
