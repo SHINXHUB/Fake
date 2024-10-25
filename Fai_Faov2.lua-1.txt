@@ -5,13 +5,13 @@ local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.
 local Window = Fluent:CreateWindow({
     --ai skid thì nhớ đổi tên =)
     --táo hub , aniee hub :>
-    Title = "Fai Fao Hub",
+    Title = "SHIN X HUB",
     SubTitle = "Version 2",
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
     Acrylic = false, -- The blur may be detectable, setting this to false disables blur entirely
     Theme = "Darker",
-    MinimizeKey = Enum.KeyCode.End -- Used when theres no MinimizeKeybind
+    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
 })
 local Tabs = {
     Main = Window:AddTab({ Title = "Main Farm", Icon = "home" }),
@@ -46,6 +46,161 @@ function AntiBan()
      end
     end
     AntiBan()
+
+_G.SafeFarm = true
+assert(getrawmetatable)
+    grm = getrawmetatable(game)
+    setreadonly(grm, false)
+    old = grm.__namecall
+    grm.__namecall = newcclosure(function(self, ...)
+        local args = {...}
+        if tostring(args[1]) == "TeleportDetect" then
+            return
+        elseif tostring(args[1]) == "CHECKER_1" then
+            return
+        elseif tostring(args[1]) == "CHECKER" then
+            return
+        elseif tostring(args[1]) == "GUI_CHECK" then
+            return
+        elseif tostring(args[1]) == "OneMoreTime" then
+            return
+        elseif tostring(args[1]) == "checkingSPEED" then
+            return
+        elseif tostring(args[1]) == "BANREMOTE" then
+            return
+        elseif tostring(args[1]) == "PERMAIDBAN" then
+            return
+        elseif tostring(args[1]) == "KICKREMOTE" then
+            return
+        elseif tostring(args[1]) == "BR_KICKPC" then
+            return
+        elseif tostring(args[1]) == "BR_KICKMOBILE" then
+            return
+        end
+        return old(self, ...)
+    end)
+function CheckAntiCheatBypass()
+    for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+        if v:IsA("LocalScript") then
+            if v.Name == "General" or v.Name == "Shiftlock"  or v.Name == "FallDamage" or v.Name == "2915" or v.Name == "CamBob" or v.Name == "JumpCD" or v.Name == "Looking" or v.Name == "Run" then
+                v:Destroy()
+            end
+        end
+     end
+     for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerScripts:GetDescendants()) do
+        if v:IsA("LocalScript") then
+            if v.Name == "RobloxMotor6DBugFix" or v.Name == "CustomForceField" or v.Name == "MenuBloodSp"  or v.Name == "PlayerList" then
+                v:Destroy()
+            end
+        end
+    end
+end
+
+local function bypassAntiExploit()
+    for _, instance in ipairs(filtergc()) do
+        if instance:IsA("AntiExploitSystem") then
+            instance:Destroy()
+        end
+    end
+end
+spawn(function()
+    while wait() do
+        if _G.SafeFarm then
+            pcall(function()
+                CheckAntiCheatBypass()
+                bypassAntiExploit()
+            end)
+        end
+    end
+end)
+function intiAppleHub() 
+_G.antiscan = true
+getgenv().A = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).wrapAttackAnimationAsync
+getgenv().B = require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.Particle).play
+_G.setfflag = true
+end
+spawn(function()
+    while wait() do
+        if _G.setfflag then
+            setfflag("AbuseReportScreenshot", "False")
+            setfflag("AbuseReportScreenshotPercentage", "0")
+        end
+    end
+end)
+_G.AntiFlagReset = true
+spawn(function()
+    while wait(2000) do
+        if _G.AntiFlagReset then
+            pcall(function()
+            game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+        end)
+    end
+   end
+end)
+
+spawn(function()
+    while _G.AntiFlagReset do task.wait()
+        if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+            local HealthPercent = game.Players.LocalPlayer.Character.Humanoid.Health / game.Players.LocalPlayer.Character.Humanoid.MaxHealth * 100
+            if HealthPercent < 50 then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 100, 0)
+            end
+        end
+        task.wait()
+    end
+end)
+
+local Players = game:GetService("Players")
+
+local function onCharacterAdded(character)
+    local humanoid = character:WaitForChild("Humanoid")
+    humanoid.Died:Connect(function()
+        humanoid.Health = 0
+    end)
+end
+
+Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(onCharacterAdded)
+end)
+
+for _, player in ipairs(Players:GetPlayers()) do
+    if player.Character then
+        onCharacterAdded(player.Character)
+    end
+end
+print("ไม่สามารถตรวจจับผู้ใช้งานได้")
+print("SHIN X HUB")
+warn("ไม่สามารถตรวจจับสิ่งแปลกปลอมได้")
+warn("พบข้อความว่าส่งใส SHIN X HUB ไม่สามารถตรวจจับได้")
+print("ระบบตรวจจับการโกง Error")
+repeat wait() until game:IsLoaded()
+if game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")  then
+		repeat wait()
+			if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseTeam.Visible == true then
+				if _G.Team == "Pirate" then
+					for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.TextButton.Activated)) do                                                                                                
+						v.Function()
+					end
+				elseif _G.Team == "Marine" then
+					for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Marines.Frame.TextButton.Activated)) do                                                                                                
+						v.Function()
+					end
+				else
+					for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.TextButton.Activated)) do                                                                                                
+						v.Function()
+					end
+				end
+			end
+		until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+	end
+
+game:GetService("Players").LocalPlayer.Idled:connect(
+        function()
+            game:GetService("VirtualUser"):Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+            wait(1)
+            game:GetService("VirtualUser"):Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+        end
+    )
 --------------------------------------------------------------------------------------------------------------------------------------------
     repeat wait() until game.Players
     repeat wait() until game.Players.LocalPlayer
@@ -2006,7 +2161,7 @@ end
   function Tween2(P1)
     local Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     if Distance >= 1 then
-    Speed = 50
+    Speed = 99999999
     end
     game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear), {
       CFrame = P1
@@ -2415,83 +2570,26 @@ end
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 ---Close gui
-local ScreenGui = Instance.new("ScreenGui")
-local ImageButton = Instance.new("ImageButton")
+local ScreenGui1 = Instance.new("ScreenGui")
+local ImageButton1 = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
-local UIGradient = Instance.new("UIGradient")
-local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 
+ScreenGui1.Name = "ImageButton"
+ScreenGui1.Parent = game.CoreGui
+ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-ImageButton.Parent = ScreenGui
-ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageButton.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
-ImageButton.Size = UDim2.new(0.0627121851, 0, 0.107579626, 0)
-ImageButton.Image = "rbxassetid://15597057735"
-
-UICorner.CornerRadius = UDim.new(0, 30)
-UICorner.Parent = ImageButton
-
-UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(244, 0, 0)), ColorSequenceKeypoint.new(0.32, Color3.fromRGB(146, 255, 251)), ColorSequenceKeypoint.new(0.65, Color3.fromRGB(180, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(96, 255, 231))}
-UIGradient.Parent = ImageButton
-
-UIAspectRatioConstraint.Parent = ImageButton
-UIAspectRatioConstraint.AspectRatio = 0.988
-
-
-local function HCEGY_fake_script()
-	local script = Instance.new('LocalScript', UIGradient)
-
-	local TweenService = game:GetService("TweenService")
-	local tweeninfo = TweenInfo.new(4, Enum.EasingStyle.Linear, Enum.EasingDirection.In, -1)
-	local tween = TweenService:Create(script.Parent, tweeninfo, {Rotation = 360})
-	tween:Play()
-end
-coroutine.wrap(HCEGY_fake_script)()
-local function YTZCAJC_fake_script()
-	local script = Instance.new('LocalScript', ImageButton)
-
-	local UIS = game:GetService('UserInputService')
-	local frame = script.Parent
-	local dragToggle = nil
-	local dragSpeed = 0.25
-	local dragStart = nil
-	local startPos = nil
-	
-	local function updateInput(input)
-		local delta = input.Position - dragStart
-		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
-			startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-		game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
-	end
-	
-	frame.InputBegan:Connect(function(input)
-		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
-			dragToggle = true
-			dragStart = input.Position
-			startPos = frame.Position
-			input.Changed:Connect(function()
-				if input.UserInputState == Enum.UserInputState.End then
-					dragToggle = false
-				end
-			end)
-		end
-	end)
-	
-	UIS.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-			if dragToggle then
-				updateInput(input)
-			end
-		end
-	end)
-	script.Parent.MouseButton1Click:Connect(function()
-		game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.End,false,game)
-	end)
-end
-coroutine.wrap(YTZCAJC_fake_script)()
+ImageButton1.Parent = ScreenGui1
+ImageButton1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton1.BorderSizePixel = 0
+ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+ImageButton1.Size = UDim2.new(0, 50, 0, 50)
+ImageButton1.Draggable = true
+ImageButton1.Image = "rbxassetid://16375477666"
+ImageButton1.MouseButton1Down:connect(function()
+  game:GetService("VirtualInputManager"):SendKeyEvent(true,"LeftControl",false,game)
+  game:GetService("VirtualInputManager"):SendKeyEvent(false,"LeftControl",false,game)
+end)
+UICorner.Parent = ImageButton1
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- Hehe
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -2599,7 +2697,7 @@ end)
     while wait(.1) do
         if _G.FastAttack4 then
             pcall(function()
-                repeat task.wait(0.15)
+                repeat task.wait(0.2)
                     AttackNoCD()
                 until not _G.FastAttack4
             end)
@@ -2607,6 +2705,12 @@ end)
     end
 end)
 
+    local ToggleLevel = Tabs.Main:AddToggle("ToggleLevel", {Title = "Auto Level", Default = false })
+    ToggleLevel:OnChanged(function(Value)
+        _G.SpinPos = Value
+    end)
+    Options.ToggleLevel:SetValue(false)
+    
     local ToggleLevel = Tabs.Main:AddToggle("ToggleLevel", {Title = "Auto Level", Default = false })
     ToggleLevel:OnChanged(function(Value)
         _G.AutoLevel = Value
@@ -3173,6 +3277,10 @@ ToggleBone:OnChanged(function(Value)
     _G.Auto_Bone = Value
 end)
 Options.ToggleBone:SetValue(false)
+local BoneCFrame = CFrame.new(-9515.75, 174.8521728515625, 6079.40625)
+local BoneCFrame2 = CFrame.new(-9359.453125, 141.32679748535156, 5446.81982421875)
+
+
 spawn(function()
     while wait() do
         if _G.AutoBone then
