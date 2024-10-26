@@ -4531,7 +4531,7 @@ while wait() do
             wait(0.5) 
             local model = workspace.Boats.PirateBrigade
             if model then
-                local speed = 350
+                local speed = 70
                 local forwardDirection = model.PrimaryPart.CFrame.lookVector
                 local targetPosition = model.PrimaryPart.Position + forwardDirection * 10
                 while (model.PrimaryPart.Position - targetPosition).Magnitude > 0.1 do
