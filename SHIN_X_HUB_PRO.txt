@@ -35,12 +35,12 @@ else
 end
 setfpscap(240)
 local Window = Fluent:CreateWindow({
-    Title = "SHIN X HUB",
+    Title = "Attack Hub",
     SubTitle = "V1",
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
-    Acrylic = false,
-    Theme = "Dark",
+    Acrylic = true,
+    Theme = "Aqua",
     MinimizeKey = Enum.KeyCode.End
 })
 local Tabs = {
@@ -2383,7 +2383,7 @@ end
 
 Type11 = 1
 spawn(function()
-    while wait(.1) do
+    while wait(.0) do
         if Type1 == 1 then
             Pos2 = CFrame.new(120,60,0)
         elseif Type1 == 2 then
@@ -2393,7 +2393,7 @@ spawn(function()
     end)
 
 spawn(function()
-    while wait(.1) do
+    while wait(.0) do
         Type1 = 1
         wait(2)
         Type1 = 2
@@ -2405,7 +2405,7 @@ end)
 ---Method Farm
 Type1 = 1
 spawn(function()
-    while wait(.1) do
+    while wait(.0) do
         if Type == 1 then
             Pos = CFrame.new(0,60,0)
         elseif Type == 2 then
@@ -2419,7 +2419,7 @@ spawn(function()
     end)
 
 spawn(function()
-    while wait(.1) do
+    while wait(.0) do
         Type = 1
         wait(1)
         Type = 2
@@ -4749,11 +4749,6 @@ spawn(function()
     end)
 end)
     end)
-    local ToggleBringMob = Tabs.Setting:AddToggle("ToggleBringMob", {Title = "Bring Mob", Default = true })
-    ToggleBringMob:OnChanged(function(Value)
-        _G.A = Value
-        _G.H = Value
-    Options.ToggleBringMob:SetValue(true)
     Options.ToggleFastAttack:SetValue(true)
     local ToggleBringMob = Tabs.Setting:AddToggle("ToggleBringMob", {Title = "Bring Mob", Default = true })
     ToggleBringMob:OnChanged(function(Value)
@@ -6567,7 +6562,7 @@ spawn(function()
         elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709143733" then
             Hop()
             Fluent:Notify({
-                Title = "SHIN X HUB",
+                Title = "Attack Hub",
                 Content = "Turn Off Find Full Moon...",
                 SubContent = "", -- Optional
                 Duration = 5 -- Set to nil to make the notification not disappear
@@ -6575,7 +6570,7 @@ spawn(function()
         elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709150401" then
             Hop()
             Fluent:Notify({
-                Title = "SHIN X HUB",
+                Title = "Attack Hub",
                 Content = "Hop...",
                 SubContent = "", -- Optional
                 Duration = 5 -- Set to nil to make the notification not disappear
@@ -6583,7 +6578,7 @@ spawn(function()
         elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149680" then
             Hop()
             Fluent:Notify({
-                Title = "SHIN X HUB",
+                Title = "Attack Hub",
                 Content = "Hop...",
                 SubContent = "", -- Optional
                 Duration = 5 -- Set to nil to make the notification not disappear
@@ -6616,44 +6611,3 @@ spawn(function()
     end
 end)
 end
------------------------------------------------------------------------------------------------------------------------------------------------
---Noob
-coroutine.wrap(function()
-local StopCamera = require(game.ReplicatedStorage.Util.CameraShaker)StopCamera:Stop()
-    for v,v in pairs(getreg()) do
-        if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework then
-             for v,v in pairs(debug.getupvalues(v)) do
-                if typeof(v) == "table" then
-                    spawn(function()
-                        game:GetService("RunService").RenderStepped:Connect(function()
-                            if _G.A then
-                                 pcall(function()
-                                     v.activeController.timeToNextAttack = -(math.huge^math.huge^math.huge)
-                                     v.activeController.attacking = false
-                                     v.activeController.increment = 4
-                                     v.activeController.blocking = false   
-                                     v.activeController.hitboxMagnitude = 150
-    		                         v.activeController.humanoid.AutoRotate = true
-    	                      	     v.activeController.focusStart = 0
-    	                      	     v.activeController.currentAttackTrack = 0
-                                     sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRaxNerous", math.huge)
-                                 end)
-                             end
-                         end)
-                    end)
-                end
-            end
-        end
-    end
-end)();
-
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.H then
-             pcall(function()
-                game:GetService'VirtualUser':CaptureController()
-			    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
-            end)
-        end
-    end)
-end)
