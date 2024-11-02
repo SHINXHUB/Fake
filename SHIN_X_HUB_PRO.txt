@@ -4750,12 +4750,9 @@ spawn(function()
 end)
     end)
     local ToggleBringMob = Tabs.Setting:AddToggle("ToggleBringMob", {Title = "Bring Mob", Default = true })
-    ToggleBringMob:OnChanged(function(vu)
-        (getgenv()).Config = {
-         ["FastAttack"] = vu,
-          ["ClickAttack"] = vu
-} 
-    end)
+    ToggleBringMob:OnChanged(function(Value)
+        _G.A = Value
+        _G.H = Value
     Options.ToggleBringMob:SetValue(true)
     Options.ToggleFastAttack:SetValue(true)
     local ToggleBringMob = Tabs.Setting:AddToggle("ToggleBringMob", {Title = "Bring Mob", Default = true })
@@ -6629,7 +6626,7 @@ local StopCamera = require(game.ReplicatedStorage.Util.CameraShaker)StopCamera:S
                 if typeof(v) == "table" then
                     spawn(function()
                         game:GetService("RunService").RenderStepped:Connect(function()
-                            if getgenv().Config['FastAttack'] then
+                            if _G.A then
                                  pcall(function()
                                      v.activeController.timeToNextAttack = -(math.huge^math.huge^math.huge)
                                      v.activeController.attacking = false
@@ -6652,7 +6649,7 @@ end)();
 
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
-        if getgenv().Config['ClickAttack'] then
+        if _G.H then
              pcall(function()
                 game:GetService'VirtualUser':CaptureController()
 			    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
