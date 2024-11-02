@@ -2580,28 +2580,6 @@ local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
             end)
         end
     end)
-local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
-        Title = "Weapon",
-        Values = {'Melee','Sword','Blox Fruit'},
-        Multi = false,
-        Default = 1,
-    })
-    DropdownSelectWeapon:SetValue('Melee')
-    DropdownSelectWeapon:OnChanged(function(Value)
-        _G.FastAttackFaiFao_Mode = Value
-    end)
-     _G.FastAttackFaiFao_Mode = Value
-	if _G.FastAttackFaiFao_Mode == "Fast Attack" then
-		_G.Fast_Delay = 0.17
-	elseif _G.FastAttackFaiFao_Mode == "Normal Attack" then
-		_G.Fast_Delay = 0.25
-	elseif _G.FastAttackFaiFao_Mode == "Super Fast Attack" then
-		(getgenv()).Config = {
-		 ["FastAttack"] = true,
-         ["ClickAttack"] = true
-         }
-	end
-end)
     local ToggleLevel = Tabs.Main:AddToggle("ToggleLevel", {Title = "Auto Farm Level", Default = false })
     ToggleLevel:OnChanged(function(Value)
         _G.AutoLevel = Value
@@ -4771,6 +4749,14 @@ spawn(function()
     end)
 end)
     end)
+    local ToggleBringMob = Tabs.Setting:AddToggle("ToggleBringMob", {Title = "Bring Mob", Default = true })
+    ToggleBringMob:OnChanged(function(vu)
+        (getgenv()).Config = {
+         ["FastAttack"] = vu,
+          ["ClickAttack"] = vu
+} 
+    end)
+    Options.ToggleBringMob:SetValue(true)
     Options.ToggleFastAttack:SetValue(true)
     local ToggleBringMob = Tabs.Setting:AddToggle("ToggleBringMob", {Title = "Bring Mob", Default = true })
     ToggleBringMob:OnChanged(function(Value)
