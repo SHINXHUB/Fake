@@ -4486,7 +4486,6 @@ local Main = Tab:CraftPage('Cake',1)
 Main:Toggle("Auto Farm Cake Prince\nฟาร์ม คาตาคุริ", false, function(value)
     _G.AutoDoughtBoss = value
     _G.Settings.Auto_Cake_Prince = value
-	SaveSettings()
     StopTween(_G.AutoDoughtBoss)
 end)
 spawn(function()
