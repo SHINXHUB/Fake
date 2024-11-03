@@ -1,5 +1,5 @@
-_G.Color = Color3.fromRGB(0, 255, 0)
-_G.Logo = 16663324629
+_G.Color = Color3.fromRGB(0, 0, 0)
+_G.Logo = 113613777068527
 _G.Settings = {
 		Auto_Farm_Level = false,
 		Auto_Farm_Fast = true,
@@ -4156,8 +4156,8 @@ Tween = function(target,statement,disableIslandSkip,fromRaid,CallingFrom)
         tweenid = -1
     end
 local Win = library:Evil("SHIN X HUB   ","",_G.Logo )
-local Tab = Win:CraftTab('General')
-local Main = Tab:CraftPage('Main',1)
+local Tab = Win:CraftTab('เมนู หลัก')
+local Main = Tab:CraftPage('ฟาร์ม ทั่วไป',1)
 if World1 then 
 Main:Toggle("ออโต้ ฟาร์ม เลเวล", false, function(value)
     _G.AutoFarm = value
@@ -5212,7 +5212,7 @@ spawn(function()
     end
 end)local Set = Tab:CraftPage('ส่วนเสริม',2)
 local Weapon = {
-"หมัด","ดาบ","ผลปีศาจ"
+"หมัด","ดาบ","ผลปีศาจ","ปืน"
 }
 Set:Dropdown("Select Weapon",Weapon,{"Melee"},function(value)
 _G.SelectWeapon = value
@@ -5222,7 +5222,7 @@ end)
 task.spawn(function()
 	while wait() do
 		pcall(function()
-			if _G.SelectWeapon == "หมัด/Melee" then
+			if _G.SelectWeapon == "หมัด" then
 				for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 					if v.ToolTip == "Melee" then
 						if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
@@ -5230,7 +5230,7 @@ task.spawn(function()
 						end
 					end
 				end
-			elseif _G.SelectWeapon == "ดาบ/Sword" then
+			elseif _G.SelectWeapon == "ดาบ" then
 				for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 					if v.ToolTip == "Sword" then
 						if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
@@ -5238,7 +5238,7 @@ task.spawn(function()
 						end
 					end
 				end
-			elseif _G.SelectWeapon == "ปืน/Gun" then
+			elseif _G.SelectWeapon == "ปืน" then
 				for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 					if v.ToolTip == "Gun" then
 						if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
@@ -5246,7 +5246,7 @@ task.spawn(function()
 						end
 					end
 				end
-			elseif _G.SelectWeapon == "ผลปีศาจ/Fruit" then
+			elseif _G.SelectWeapon == "ผลปีศาจ" then
 				for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 					if v.ToolTip == "Blox Fruit" then
 						if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
