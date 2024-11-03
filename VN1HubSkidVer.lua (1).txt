@@ -41,7 +41,7 @@ else
     return 'Not Support Game'
 end
 local Window = Fluent:CreateWindow({
-    Title = "VN1 Hub",
+    Title = "SHIN X HUB",
     SubTitle = "Version [Skid]",
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
@@ -2399,7 +2399,7 @@ end
 
 Type11 = 1
 spawn(function()
-    while wait(.1) do
+    while wait(.0) do
         if Type1 == 1 then
             Pos2 = CFrame.new(120,60,0)
         elseif Type1 == 2 then
@@ -2409,7 +2409,7 @@ spawn(function()
     end)
 
 spawn(function()
-    while wait(.1) do
+    while wait(.0) do
         Type1 = 1
         wait(2)
         Type1 = 2
@@ -2421,7 +2421,7 @@ end)
 ---Method Farm
 Type1 = 1
 spawn(function()
-    while wait(.1) do
+    while wait(.0) do
         if Type == 1 then
             Pos = CFrame.new(0,60,0)
         elseif Type == 2 then
@@ -2435,7 +2435,7 @@ spawn(function()
     end)
 
 spawn(function()
-    while wait(.1) do
+    while wait(.0) do
         Type = 1
         wait(1)
         Type = 2
