@@ -10827,7 +10827,7 @@ spawn(function()
 end)
 local FastAttackSpeed = true
 
-_G.Fast_Delay = 0.015
+_G.Fast_Delay = 0.0151
 
 local CurveFrame = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("CombatFramework")))[2]
 local VirtualUser = game:GetService("VirtualUser")
