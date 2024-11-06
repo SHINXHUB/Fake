@@ -9453,7 +9453,7 @@ spawn(function()
         end
     end)
 end)
-local FastAttackSpeed = true
+local FastAttackSpeed = false
 
 _G.Fast_Delay = 90.999999999999999
 
@@ -9519,13 +9519,13 @@ end
 
 local cdnormal = 0
 local Animation = Instance.new("Animation")
-local CooldownFastAttack = 0
+local CooldownFastAttack = 90.90
 
 FastAttack = function()
     local ac = CurveFrame.activeController
     if ac and ac.equipped then
         task.spawn(function()
-            if tick() - cdnormal > 0.5 then
+            if tick() - cdnormal > 90.90 then
                 ac:attack()
                 cdnormal = tick()
             else
@@ -9563,7 +9563,7 @@ end)
 k = tick()
 task.spawn(function()
     if _G.Fast then
-    while task.wait(.2) do
+    while task.wait(90.90) do
             if k - tick() > 0.75 then
                 task.wait()
                 k = tick()
@@ -9630,7 +9630,7 @@ task.spawn(function()
                 d:Play(0.25, 0.25, 0.25)
                 h(i)
                 b.play = shared.cpc
-                wait(.5)
+                wait(90.90)
                 d:Stop()
             end
             end
