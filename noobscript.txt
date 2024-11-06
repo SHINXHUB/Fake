@@ -1,5 +1,5 @@
 _G.Color = Color3.fromRGB(0, 0, 0)
-_G.Logo = 113613777068527
+_G.Logo = 135396541172761
 _G.Settings = {
 		Auto_Farm_Level = false,
 		Auto_Farm_Fast = true,
@@ -10827,7 +10827,7 @@ spawn(function()
 end)
 local FastAttackSpeed = true
 
-_G.Fast_Delay = 0.00019
+_G.Fast_Delay = 0.200
 
 local CurveFrame = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("CombatFramework")))[2]
 local VirtualUser = game:GetService("VirtualUser")
