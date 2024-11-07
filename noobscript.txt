@@ -4383,7 +4383,7 @@ spawn(function()
                     end
                 else
                     if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]") then
-                        ATween(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                        ATween(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]").HumanoidRootPart.CFrame * CFrame.new(-2151.82153, 149.315704, -12404.9053, 0.087131381, -0, -0.996196866, 0, 1, -0, 0.996196866, 0, 0.087131381))
                     else
                         if KillMob == 0 then
                         end                    
@@ -4422,16 +4422,16 @@ spawn(function()
                                 UnEquipWeapon(_G.SelectWeapon)
                                 ATween(CFrame.new(-2151.82153, 149.315704, -12404.9053, 0.087131381, -0, -0.996196866, 0, 1, -0, 0.996196866, 0, 0.087131381))
                                 if game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter") then
-                                    ATween(game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter").HumanoidRootPart.CFrame * CFrame.new(2,20,2)) 
+                                    ATween(game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter").HumanoidRootPart.CFrame * CFrame.new(-2151.82153, 149.315704, -12404.9053, 0.087131381, -0, -0.996196866, 0, 1, -0, 0.996196866, 0, 0.087131381)) 
                                 else
                                     if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Guard") then
-                                        ATween(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Guard").HumanoidRootPart.CFrame * CFrame.new(2,20,2)) 
+                                        ATween(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Guard").HumanoidRootPart.CFrame * CFrame.new(-2151.82153, 149.315704, -12404.9053, 0.087131381, -0, -0.996196866, 0, 1, -0, 0.996196866, 0, 0.087131381)) 
                                     else
                                         if game:GetService("ReplicatedStorage"):FindFirstChild("Baking Staff") then
-                                            ATween(game:GetService("ReplicatedStorage"):FindFirstChild("Baking Staff").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                                            ATween(game:GetService("ReplicatedStorage"):FindFirstChild("Baking Staff").HumanoidRootPart.CFrame * CFrame.new(-2151.82153, 149.315704, -12404.9053, 0.087131381, -0, -0.996196866, 0, 1, -0, 0.996196866, 0, 0.087131381))
                                         else
                                             if game:GetService("ReplicatedStorage"):FindFirstChild("Head Baker") then
-                                                ATween(game:GetService("ReplicatedStorage"):FindFirstChild("Head Baker").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                                                ATween(game:GetService("ReplicatedStorage"):FindFirstChild("Head Baker").HumanoidRootPart.CFrame * CFrame.new(-2151.82153, 149.315704, -12404.9053, 0.087131381, -0, -0.996196866, 0, 1, -0, 0.996196866, 0, 0.087131381))
                                             end
                                         end
                                     end
@@ -4439,10 +4439,10 @@ spawn(function()
                             end
                         else
                             if game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
-                                ATween(game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                                ATween(game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince").HumanoidRootPart.CFrame * CFrame.new(-2151.82153, 149.315704, -12404.9053, 0.087131381, -0, -0.996196866, 0, 1, -0, 0.996196866, 0, 0.087131381))
                             else
                                 if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince") then
-                                    ATween(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                                    ATween(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince").HumanoidRootPart.CFrame * CFrame.new(-2151.82153, 149.315704, -12404.9053, 0.087131381, -0, -0.996196866, 0, 1, -0, 0.996196866, 0, 0.087131381))
                                 end
                             end
                         end
