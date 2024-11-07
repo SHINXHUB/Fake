@@ -4358,7 +4358,7 @@ spawn(function()
         end)
     end
 end)
-local CakePos = CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375)
+local CakePos = CFrame.new(-2151.82153, 149.315704, -12404.9053, 0.087131381, -0, -0.996196866, 0, 1, -0, 0.996196866, 0, 0.087131381)
 spawn(function()
     while wait() do
         if _G.AutoDoughtBoss then
@@ -4420,7 +4420,7 @@ spawn(function()
                         end
                                 MagnetDought = false
                                 UnEquipWeapon(_G.SelectWeapon)
-                                ATween(CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375))
+                                ATween(CFrame.new(-2151.82153, 149.315704, -12404.9053, 0.087131381, -0, -0.996196866, 0, 1, -0, 0.996196866, 0, 0.087131381))
                                 if game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter") then
                                     ATween(game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter").HumanoidRootPart.CFrame * CFrame.new(2,20,2)) 
                                 else
@@ -4480,7 +4480,7 @@ spawn(function()
                     end
                 else
                 UnEquipWeapon(_G.SelectWeapon)
-                ATween(CFrame.new(-2662.818603515625, 1062.3480224609375, -11853.6953125))
+                ATween(CFrame.new(-2151.82153, 149.315704, -12404.9053, 0.087131381, -0, -0.996196866, 0, 1, -0, 0.996196866, 0, 0.087131381))
                     if game:GetService("ReplicatedStorage"):FindFirstChild("Dough King") then
                         ATween(game:GetService("ReplicatedStorage"):FindFirstChild("Dough King").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                     else
