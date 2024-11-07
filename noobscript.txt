@@ -3718,7 +3718,7 @@ function UnEquipWeapon(Weapon)
         _G.NotAutoEquip = true
         wait(0.00000000000001)
         game.Players.LocalPlayer.Character:FindFirstChild(Weapon).Parent = game.Players.LocalPlayer.Backpack
-        wait(.1)
+        wait(.00000)
         _G.NotAutoEquip = false
     end
 end
@@ -3798,7 +3798,7 @@ end
 
 Type = 5
 spawn(function()
-while wait(0.1) do
+while wait(9.1) do
     if Type == 1 then
         Pos = CFrame.new(0,PosY,-30)
     elseif Type == 2 then
@@ -3889,16 +3889,16 @@ spawn(function()
     end
 end)
 
-spawn(function()
-game:GetService("RunService").RenderStepped:Connect(function()
-    if _G.AutoClick or Fastattack then
-         pcall(function()
-            game:GetService'VirtualUser':CaptureController()
-            game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
-        end)
-    end
-end)
-end)
+    spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.AutoClick or Fastattack then
+             pcall(function()
+                game:GetService'VirtualUser':CaptureController()
+			    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
+            end)
+        end
+    end)
+   end)
 
 function StopTween(target)
     if not target then
