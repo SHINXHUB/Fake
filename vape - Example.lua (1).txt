@@ -2094,7 +2094,7 @@ spawn(function()
         end
     end
 end)   
-tab:Dropdown("Dropdown",{"Melee","Sword","Fruit","Gun"}, function(t)
+tab:Dropdown("Dropdown",{"Melee","Sword","Gun","Fruit"}, function(t)
     _G.SelectWeapon = t
 end)
 task.spawn(function()
