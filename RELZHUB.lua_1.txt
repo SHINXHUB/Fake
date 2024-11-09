@@ -1,45 +1,23 @@
-local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
-local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
-    local Window = Fluent:CreateWindow({
-    Title = "Xester Hub" ,
-    SubTitle = "By HuySimp",
-    TabWidth = 120,
-    Size = UDim2.fromOffset(480, 320),
-    Acrylic = false, -- The blur may be detectable, setting this to false disables blur entirely
-    Theme = "Darker",
-    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
-})
+local lib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/Vape.txt")()
 
---Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
-local Tabs = {
-	Main = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-	Set = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-	Hold = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-	M = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-	Sea = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-	RaceV4 = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-	P = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-	R = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-	ESP = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-	T = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-	S = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-	D = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-	Misc = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-	Serv = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-}
+local win = lib:Window("SHIN X HUB",Color3.fromRGB(44, 120, 224), Enum.KeyCode.RightControl)
 
-local Options = Fluent.Options
 
-do
-    Fluent:Notify({
-        Title = "Xester Hub",
-        Content = "Thank for use",
-        SubContent = "", -- Optional
-        Duration = 5 -- Set to nil to make the notification not disappear
-    })
-    end
-    
+local Main = win:Tab("General")
+local Set = win:Tab("Set")
+local Hold = win:Tab("Sub Auto Farm")
+local M = win:Tab("Sub Auto Farm")
+local Sea = win:Tab("Sub Auto Farm")
+local Ss = win:Tab("Sub Auto Farm")
+local RaceV4 = win:Tab("Sub Auto Farm")
+local P = win:Tab("Sub Auto Farm")
+local R = win:Tab("Sub Auto Farm")
+local ESP = win:Tab("Sub Auto Farm")
+local T = win:Tab("Sub Auto Farm")
+local S = win:Tab("Sub Auto Farm")
+local D = win:Tab("Sub Auto Farm")
+local Misc = win:Tab("Sub Auto Farm")
+local Serv = win:Tab("Sub Auto Farm")
 
 
 if game.PlaceId == 2753915549 then
@@ -2146,64 +2124,9 @@ end
         game:GetService("VirtualUser"):Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
     end)
 
-    
-Main:Seperator("Main")
 
-Time = Main:Label("Executor Time")
-
-function UpdateTime()
-local GameTime = math.floor(workspace.DistributedGameTime+0.5)
-local Hour = math.floor(GameTime/(60^2))%24
-local Minute = math.floor(GameTime/(60^1))%60
-local Second = math.floor(GameTime/(60^0))%60
-Time:Set("[GameTime] : Hours : "..Hour.." Min : "..Minute.." Sec : "..Second)
-end
-
-spawn(function()
-while task.wait() do
-pcall(function()
-UpdateTime()
-end)
-end
-end)
-
-Client = Main:Label("Client")
-
-function UpdateClient()
-local Fps = workspace:GetRealPhysicsFPS()
-Client:Set("[Fps] : "..Fps)
-end
-
-spawn(function()
-while true do wait(.1)
-UpdateClient()
-end
-end)
-
-Client1 = Main:Label("Client")
-
-function UpdateClient1()
-local Ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-Client1:Set("[Ping] : "..Ping)
-end
-
-spawn(function()
-while true do wait(.1)
-UpdateClient1()
-end
-end)
-
-Main:Label("Script By RelzBlox#6078")
-Main:Button("Copy Discord Link",function()
-setclipboard("https://discord.com/invite/ba2jasaKn2") 
-end)
-
-Main:Seperator("Level Farm")
-
-local WeaponList = {"Melee","Sword","Fruit","Gun"}
-_G.SelectWeapon = "Melee"
-Main:Dropdown("Select Weapon",WeaponList,_G.SelectWeapon,function(value)
-_G.SelectWeapon = value
+tab:Dropdown("Dropdown",{"Melee","Sword","Gun","Fruit"}, function(t)
+_G.SelectWeapon = t
 end)
 
 task.spawn(function()
@@ -2246,34 +2169,11 @@ task.spawn(function()
 	end
     end)
     
-local ListF = {"Normal", "Auto Quest", "Nearest"}
-FarmMode = "Normal"
-Main:Dropdown("Farm Mode", ListF,FarmMode,function(value)
+tab:Dropdown("Dropdown",{"Normal","Auto Quest","Nearest"}, function(t)
     FarmMode = value
 end)
    
-   --[[
-local MonsterStatus = Main:Label("")
-local QuestStatus = Main:Label("")
-
-spawn(function()
-  while task.wait() do
-  if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-  MonsterStatus:Set("[Monster] : ...")
-  QuestStatus:Set("[Quest] : ...".." | [Level] : ...")
-  elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-  pcall(function()
-    CheckQuest()
-    MonsterStatus:Set("[Monster] : "..Mon)
-    QuestStatus:Set("[Quest] : "..NameQuest.." | [Level] : "..LevelQuest)
-    end)
-  end
-  end
-  end)
-  
-  ]]--
-
-    Main:Toggle("Start Auto Farm",_G.AutoFarm,"Auto Farm Selected Mode",function(value)
+    Main:Toggle("lv",false, function(value)
         _G.AutoFarm = value
         StopTween(_G.AutoFarm)
     end)
@@ -2424,7 +2324,7 @@ spawn(function()
     end)
 
 if World1 then
-    Main:Toggle("Auto Farm Fast",_G.AutoFarmFast,"Farm Sky Lv.10-75",function(value)
+    Main:Toggle("Fastfarm",false, function(value)
         _G.Farmfast = value
         StopTween(_G.Farmfast)
     end)
@@ -2522,19 +2422,11 @@ end
         end
     end)
 
-    Main:Seperator("Mastery Farm")
-
-    -- local ModeMastery = {
-    --     "Normal",
-    --     "Nearest"
-    -- }
-
-    -- SelectedMasteryMode = "Normal"
-    -- Main:Dropdown("Select Mode", ModeMastery, SelectedMasteryMode, function(v)
+    -- Main:Dropdown("Dropdown",{"Normal","Nearest"}, function(v)
     -- SelectedMasteryMode = v
     -- end)
 
-    Main:Toggle("Auto Farm Fruit Mastery",_G.AutoFarmFruitMastery,"Auto Kill Mob Using Fruit",function(value)
+    Main:Toggle("master",false, function(value)
         _G.AutoFarmFruitMastery = value
         StopTween(_G.AutoFarmFruitMastery)
         -- if _G.AutoFarmFruitMastery == false then
@@ -2542,131 +2434,12 @@ end
         --     Skillaimbot = false
         -- end
     end)
-    Main:Toggle("Auto Farm Gun Mastery",_G.AutoFarmGunMastery,"Auto Kill Mob Using Gun",function(value)
+    Main:Toggle("gun",false, function(value)
         _G.AutoFarmGunMastery = value
         StopTween(_G.AutoFarmGunMastery)
     end)
     
-    
-if World1 then
-	tableMon = {"Bandit","Monkey","Gorilla","Pirate","Brute","Desert Bandit","Desert Officer","Snow Bandit","Snowman","Chief Petty Officer","Sky Bandit","Dark Master","Toga Warrior","Gladiator","Military Soldier","Military Spy","Fishman Warrior","Fishman Commando","God's Guard","Shanda","Royal Squad","Royal Soldier","Galley Pirate","Galley Captain"}
-elseif World2 then
-	tableMon = {"Raider","Mercenary","Swan Pirate","Factory Staff","Marine Lieutenant","Marine Captain","Zombie","Vampire","Snow Trooper","Winter Warrior","Lab Subordinate","Horned Warrior","Magma Ninja","Lava Pirate","Ship Deckhand","Ship Engineer","Ship Steward","Ship Officer","Arctic Warrior","Snow Lurker","Sea Soldier","Water Fighter"}
-elseif World3 then
-	tableMon = {"Pirate Millionaire","Dragon Crew Warrior","Dragon Crew Archer","Female Islander","Giant Islander","Marine Commodore","Marine Rear Admiral","Fishman Raider","Fishman Captain","Forest Pirate","Mythological Pirate","Jungle Pirate","Musketeer Pirate","Reborn Skeleton","Living Zombie","Demonic Soul","Posessed Mummy","Peanut Scout","Peanut President","Ice Cream Chef","Ice Cream Commander","Cookie Crafter","Cake Guard","Baking Staff","Head Baker","Cocoa Warrior","Chocolate Bar Battler","Sweet Thief","Candy Rebel","Candy Pirate","Snow Demon","Isle Outlaw","Island Boy","Sun-kissed Warrior","Isle Champion"}
-end
-
-
-Main:Seperator("Mob Farm")
-
-Main:Dropdown("Select Mob",tableMon,false,function(vu)
-    _G.SelectMob = vu
-end)
-    
-    Main:Toggle("Auto Farm Mob",_G.AutoFarmMob,"Auto Kill Mob",function(value)
-        _G.AutoFarmMob = value
-        StopTween(_G.AutoFarmMob)
-    end)
-    
-    spawn(function()
-        while wait() do
-            if _G.AutoFarmMob then
-                pcall(function()
-                    if game:GetService("Workspace").Enemies:FindFirstChild(_G.SelectMob) then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v.Name == _G.SelectMob then
-                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    repeat task.wait(_G.FastAttackDelay)
-                                        AutoHaki()
-                                        EquipWeapon(_G.SelectWeapon)
-                                        v.HumanoidRootPart.CanCollide = false
-                                        v.Humanoid.WalkSpeed = 0
-                                        StartBring = true
-                                        PosMon = v.HumanoidRootPart.CFrame
-                                        MonFarm = v.Name
-                                        v.HumanoidRootPart.Size = Vector3.new(80,80,80)
-                                        topos(v.HumanoidRootPart.CFrame * Pos)
-                                        AttackNoCD()
-                                    until not _G.AutoFarmMob or not v.Parent or v.Humanoid.Health <= 0
-                                    StartBring = false
-                                end
-                            end
-                        end
-                    
-                    end
-                end)
-            end
-        end
-    end)
-
-    Main:Seperator("Boss Farm")
-    
-    
-local BoSs = Main:Label("Status : Select Boss")
-
-
-	spawn(function()
-		while wait() do
-			pcall(function()
-				if game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss) or game:GetService("Workspace").Enemies:FindFirstChild(_G.SelectBoss) then
-					BoSs:Set("Status : Spawn!")	
-				else
-					BoSs:Set("Status : Boss Not Spawn")	
-				end
-			end)
-		end
-	end)
-
-    if World1 then
-	tableBoss = {"The Gorilla King","Bobby","Yeti","Mob Leader","Vice Admiral","Warden","Chief Warden","Swan","Magma Admiral","Fishman Lord","Wysper","Thunder God","Cyborg","Saber Expert"}
-elseif World2 then
-	tableBoss = {"Diamond","Jeremy","Fajita","Don Swan","Smoke Admiral","Cursed Captain","Darkbeard","Order","Awakened Ice Admiral","Tide Keeper"}
-elseif World3 then
-	tableBoss = {"Stone","Island Empress","Kilo Admiral","Captain Elephant","Beautiful Pirate","rip_indra True Form","Longma","Soul Reaper","Cake Queen"}
-end
-
-    Main:Dropdown("Select Boss",tableBoss,false,function(value)
-        _G.SelectBoss = value
-    end)
-    
-    Main:Toggle("Auto Farm Boss",_G.AutoFarmBoss,"Auto Kill Selected Boss",function(value)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-        _G.AutoFarmBoss = value
-        StopTween(_G.AutoFarmBoss)
-    end)
-
-    spawn(function()
-        while wait() do
-            if _G.AutoFarmBoss then
-                pcall(function()
-                    if game:GetService("Workspace").Enemies:FindFirstChild(_G.SelectBoss) then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v.Name == _G.SelectBoss then
-                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    repeat task.wait(_G.FastAttackDelay)
-                                        AutoHaki()
-                                        EquipWeapon(_G.SelectWeapon)
-                                        v.HumanoidRootPart.CanCollide = false
-                                        v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(80,80,80)                             
-                                        topos(v.HumanoidRootPart.CFrame * Pos)
-                                        AttackNoCD()
-                                        sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-                                    until not _G.AutoFarmBoss or not v.Parent or v.Humanoid.Health <= 0
-                                end
-                            end
-                        end
-                    else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss) then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame * CFrame.new(5,10,2))
-                        end
-                    end
-                end)
-            end
-        end
-    end)
-    
-    Main:Toggle("Auto Farm All Boss",_G.AutoFarmAllBoss,"Auto Kill All Boss",function(value)
+    Main:Toggle("Boss",false, function(value)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
         _G.AutoFarmAllBoss = value
         StopTween(_G.AutoFarmAllBoss)
@@ -2704,32 +2477,12 @@ end
             end
         end
     end)
-
-    Main:Seperator("Elite Hunter")
-    
-    local Elite_Hunter_Status = Main:Label("Status")
-	spawn(function()
-		while wait() do
-			pcall(function()
-				if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") or game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") or game:GetService("ReplicatedStorage"):FindFirstChild("Urban") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre") or game:GetService("Workspace").Enemies:FindFirstChild("Urban") then
-					Elite_Hunter_Status:Set("Status : Elite Spawn!")	
-				else
-					Elite_Hunter_Status:Set("Status : Elite Not Spawn")	
-				end
-			end)
-		end
-	end)
 	
-    Main:Toggle("Auto Elite Hunter",_G.AutoElitehunter,"Auto Kill Elite Hunter When Spawn",function(value)
+    Main:Toggle("_G.AutoElitehunter",false, function(value)
         _G.AutoElitehunter = value
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
         StopTween(_G.AutoElitehunter)
     end)
-
-    Main:Button("Check Progress", function()
-        Alert:create("Elite Hunter Progress : "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter", "Progress"))
-    end)
-    
     local Elite = CFrame.new(-5418.892578125, 313.74130249023, -2826.2260742188)
     
     spawn(function()
@@ -2784,8 +2537,6 @@ end
             end
         end
     end)
-
-    Main:Seperator("Bone Farm")
     
     local ListB = {"No Quest", "Quest", "MasteryFruit", "MasteryGun"}
     BoneFMode = "No Quest"
